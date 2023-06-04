@@ -1,0 +1,86 @@
+
+
+<div class="col-auto my-2">
+    <button class="btn btn-secondary" (click)="setEB()">Exercise  Book</button>
+    <button class="btn btn-secondary mx-2" (click)="setB()">Book</button>
+    <button class="btn btn-secondary" (click)="setA()">Accessory</button>       
+</div>
+
+ 
+<!-- the form used to add items -->
+<div class="row my-3">
+    <div class="col-md-3 mx-auto">
+        <div class="card rounded-2">
+            <div class="card-header">
+                <h3 class="mb-0"> Add {{active}}</h3>
+                <h6 class="my-2">just fill the empty fields</h6>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="saveItem(myForm.value)" #myForm ="ngForm">
+                    <div class="form-group mt-2">
+                        <input type="text" name="designation" placeholder = "enter the designation..." ngModel class="form-control" required>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="text" name="quantity" [(ngModel)]="quantity"  class="form-control" required ngModel>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="text" name="category" [(ngModel)]="active" class="form-control" required ngModel>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="text" name="price" placeholder = "enter the price..." class ="form-control" required ngModel>
+                    </div>
+                    <div class="form-group mt-2" *ngIf="active==='exerciseBook' || active==='accessory'">
+                        <input type="text" name="mark" placeholder = "mark" class ="form-control" required ngModel>
+                    </div>
+                    
+
+                    <div class="form-control mt-2" *ngIf="active==='exerciseBook'">
+                        <span for="type">type</span>
+                        <select name="type" ngModel>
+                            <option *ngFor="let t of types" value="{{t}}">{{t}}</option>
+                        </select>                    </div>
+                    <div class="form-control mt-2" *ngIf="active==='exerciseBook'">
+                        <span for="level">shape</span>
+                        <select name="shape" ngModel>
+                            <option *ngFor="let s of shapes" value="{{s}}">{{s}}</option>
+                        </select>
+                    </div>
+                    <div class="form-control mt-2" *ngIf="active==='exerciseBook'">
+                        <span for="level">pages : </span>
+                        <select name="pages" ngModel>
+                            <option *ngFor="let p of pages" value="{{p}}">{{p}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-2" *ngIf="active==='book'">
+                        <input type="text" name="author" placeholder = "author" class ="form-control" required ngModel>
+                    </div>
+                    <div class="form-group mt-2" *ngIf="active==='book'">
+                        <input type="text" name="publisher" placeholder = "publisher" class ="form-control" required ngModel>
+                    </div>
+                    <div class="form-group mt-2" *ngIf="active==='book'">
+                        
+                        <input type="radio" name="anglophone" id="anglophone" (click)="setAnglo()" ngModel>anglophone
+                        <input type="radio" name="francophone" id="francophone" (click)="setFranco()" ngModel>francophone
+                    
+                    </div>
+                    <div class="form-group mt-2" *ngIf="active==='book'">
+                        <input type="text" name="section" [(ngModel)]="section" placeholder="click on one section..." class="form-control" required ngModel>
+                    </div>
+                    <span class="form-group mt-2 form-control" required *ngIf="active==='book'">
+                        <span for="level" >level :</span>
+                        <select  name="level" ngModel>
+                            <option *ngFor="let level of levels" value="{{level}}">{{level}}</option>
+                        </select>
+                    </span>
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-primary float-right"> Save </button>
+                        <button type="reset" class="btn btn-success mx-3"> Reset </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

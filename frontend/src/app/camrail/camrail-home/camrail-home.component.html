@@ -1,0 +1,20 @@
+<h1 class="header">hello {{username}} {{matricule}} </h1>
+<div class="my-3 d-flex justify-content-between bg-light bg-gradient" >
+    <div><a class="btn btn-primary" routerLink="/camrailHome/camrailItemsList">articles' list </a></div>
+    <div><a class="btn btn-primary" routerLink="/camrailHome/camrailNewBill" (click)="addBill()"> new Invoice </a></div>
+    <div><a class="btn btn-primary" routerLink="/camrailHome/camrailDetailsBill"> active Invoice </a></div>
+    <!-- <div><a class="btn btn-primary mx-2" routerLink="/camrailHome/MyBills"> all Invoices </a></div> -->
+    <div><a class="btn btn-success" (click)="validateBill()"> Validate Invoice</a></div>
+
+</div>
+
+
+<router-outlet></router-outlet>
+<footer>
+    <div>
+         contact Us : 699-847-383
+    </div>
+    <div>
+        email : lydiengome81@gmail.com
+    </div>
+</footer>

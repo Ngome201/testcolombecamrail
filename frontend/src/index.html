@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>La Colombe</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+</head>
+<body>
+  <div class="d-flex justify-content-between ">
+    <div>
+      <img src="./assets/colombe.jpg" alt="Trulli" width="100" height="100">
+    </div>
+    <div>
+      <img src="./assets/camrail.jpg" alt="Trulli" width="100" height="100">
+    </div>
+  </div>
+  <hr>
+  <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+  <app-root></app-root>
+</body>
+</html>

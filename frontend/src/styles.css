@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+table{
+    counter-reset: row-num
+}
+table tbody tr {
+    counter-increment : row-num
+}
+table tbody tr td:first-child::before{
+    content : counter(row-num)
+}

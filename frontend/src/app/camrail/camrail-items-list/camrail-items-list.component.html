@@ -1,0 +1,91 @@
+
+<div>
+    <b class="my-3">Consult the list of the choosen item</b>
+</div>
+<div>
+    <b class="my-3">If you found something you need, then click on new Bill</b>
+</div>
+<nav class="row">
+    <div class="col-auto">
+        <button class="btn btn-secondary" (click)="setEB()">Exercise Book</button>
+        <button class="btn btn-secondary mx-2" (click)="setB()">Book</button>
+        <button class="btn btn-secondary" (click)="setA()">Accessory</button>       
+    </div>
+    
+</nav>
+<div class="table-responsive mt-2" *ngIf="activeBlock==='table'">
+    <table class="table table-striped" *ngIf="isActive === 1">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>designation</th>
+                <th>pages</th>
+                <th>shape</th>
+                <th>type</th>
+                <th>mark</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <tr *ngFor="let item of exerciseBooks|async">
+                <td> </td>
+                <td>{{item.designation}}</td>
+                <td>{{item.pages}}</td>
+                <td>{{item.shape}}</td>
+                <td>{{item.type}}</td>
+                <td>{{item.mark}}</td>
+                <td>{{item.price}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped" *ngIf="isActive === 2">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>level</th>
+                <th>designation</th>
+                <th>publisher</th>
+                <th>author</th>
+                <th>section</th>
+                <th>quantity</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <tr *ngFor="let item of books|async">
+                <td> </td>
+                <td>{{item.level}}</td>
+                <td>{{item.designation}}</td>
+                <td>{{item.publisher}}</td>
+                <td>{{item.author}}</td>
+                <td>{{item.section}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.price}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped" *ngIf="isActive === 3">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>designation</th>
+                <th>mark</th>
+                <th>quantity</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <tr *ngFor="let item of accessories|async">
+                <td> </td>
+                <td>{{item.designation}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.mark}}</td>
+                <td>{{item.price}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+</div>
