@@ -1,0 +1,94 @@
+<div class = "table-responsive" *ngIf="!isActive">
+        
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>username</th>
+                <th>lastname</th>
+                <th>matricule</th>
+                <th>address</th>
+                <th>tel</th>
+                <th>role</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <tr *ngFor = 'let user of users|async'>
+                <td></td>
+                <td>{{user.username}}</td>
+                <td>{{user.lastname}}</td>
+                <td>{{user.matricule}}</td>
+                <td>{{user.address}}</td>
+                <td>{{user.tel}}</td>
+                <td>{{user.role}}</td>
+                <td>
+                    <a class="btn btn-danger" 
+                            (click)="deleteUser(user.id)"
+                            >
+                        Delete
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" (click)="editUser(user.id)">
+                        Update
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="isActive">
+
+    <div class="row">
+
+
+    <div class="col-md-3 mx-auto">
+        <div class="card rounded-2">
+            <div class="card-header">
+                <h3 class="mb-0">Update </h3>
+            </div>
+            <div class="card-body">
+                <form novalidate (ngSubmit)="updateUser(signupform.value)" #signupform = "ngForm" >
+                    
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="user.id" class="form-control"  name ="id" disabled>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="user.username" class="form-control"  name ="username">
+                    </div>
+                
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="user.lastname" class="form-control"  name ="lastname">
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="user.tel" class="form-control" name="tel">
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="user.address" class="form-control" name="address">
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="user.matricule" class="form-control" name="matricule">
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <span>role  :</span>
+                        <select [(ngModel)]="user.role" name ="role" class="pl-5">
+                            <option value="admin">admin</option>
+                            <option value="staff">staff</option>
+                            <option value="camrail">camrail</option>
+                        </select>
+                    </div>
+                    <button type="submit" [disabled]="!signupform.valid" class="btn btn-primary mt-2">Save</button>
+                    <button class = "btn btn-danger float-left my-2" (click)="setActive()">Cancel</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

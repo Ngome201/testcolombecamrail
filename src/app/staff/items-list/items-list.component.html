@@ -1,0 +1,240 @@
+<b class="my-3">You have to choose one mode of selection in order to 
+    display the list of the given type of items
+</b>
+<nav class="row">
+    <div class="col-auto">
+        <button class="btn btn-secondary" (click)="setEB()">Exercise Book</button>
+        <button class="btn btn-secondary mx-2" (click)="setB()">Book</button>
+        <button class="btn btn-secondary" (click)="setA()">Accessory</button>       
+    </div>
+    
+</nav>
+<div class="table-responsive mt-2" *ngIf="activeBlock==='table'">
+    <table class="table table-striped" *ngIf="isActive === 1">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>designation</th>
+                <th>pages</th>
+                <th>shape</th>
+                <th>type</th>
+                <th>quantity</th>
+                <th>mark</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of exerciseBooks|async">
+                <td> </td>
+                <td>{{item.designation}}</td>
+                <td>{{item.pages}}</td>
+                <td>{{item.shape}}</td>
+                <td>{{item.type}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.mark}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <a class="btn btn-primary" (click)="editExerciseBook (item.id)">
+                        Update
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped" *ngIf="isActive === 2">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>level</th>
+                <th>designation</th>
+                <th>publisher</th>
+                <th>author</th>
+                <th>section</th>
+                <th>quantity</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of books|async">
+                <td> </td>
+                <td>{{item.level}}</td>
+                <td>{{item.designation}}</td>
+                <td>{{item.publisher}}</td>
+                <td>{{item.author}}</td>
+                <td>{{item.section}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <a class="btn btn-primary" (click)="editBook(item.id)">
+                        Update
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped" *ngIf="isActive === 3">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>designation</th>
+                <th>mark</th>
+                <th>quantity</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of accessories|async">
+                <td> </td>
+                <td>{{item.designation}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.mark}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <a class="btn btn-primary" (click)="editAccessory(item.id)">
+                        Update
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div *ngIf="activeBlock==='editExerciseBook'" class="row">
+
+    <div class="col-md-3 mx-auto">
+        <div class="card rounded-2">
+            <div class="card-header">
+                <h3 class="mb-0">Update</h3>
+            </div>
+            <div class="card-body">
+                <form novalidate (ngSubmit)="updateExerciseBook(signupform.value)" #signupform = "ngForm" >
+                    
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="exerciseBook.id" class="form-control"  name ="id" >
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="exerciseBook.designation" class="form-control"  name ="designation">
+                    </div>
+                
+                   
+                    <div class="form-control mt-2">
+                        <span for="type">type</span>
+                        <select name="type" [(ngModel)]="exerciseBook.type">
+                            <option *ngFor="let t of types" value="{{t}}">{{t}}</option>
+                        </select>                    
+                    </div>
+                    <div class="form-control mt-2">
+                        <span for="level">shape</span>
+                        <select name="shape" [(ngModel)]="exerciseBook.shape">
+                            <option *ngFor="let s of shapes" value="{{s}}">{{s}}</option>
+                        </select>
+                    </div>
+                    <div class="form-control mt-2">
+                        <span for="level">pages : </span>
+                        <select name="pages" [(ngModel)]="exerciseBook.pages">
+                            <option *ngFor="let p of pages" value="{{p}}">{{p}}</option>
+                        </select>
+                    </div>
+                   
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="exerciseBook.price" class="form-control" name="price" disabled>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="exerciseBook.mark" class="form-control" name="mark">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary float-center mt-2">Save</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- edit book -->
+<div *ngIf="activeBlock==='editBook'" class="row">
+
+    <div class="col-md-3 mx-auto">
+        <div class="card rounded-2">
+            <div class="card-header">
+                <h3 class="mb-0">Update</h3>
+            </div>
+            <div class="card-body">
+                <form novalidate (ngSubmit)="updateBook(signupform.value)" #signupform = "ngForm" >
+                    
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="book.id" class="form-control"  name ="id" disabled>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="book.designation" class="form-control" name="designation" >
+                    </div>
+                   
+                    <div class="form-control mt-2">
+                        <span for="level">level : </span>
+                        <select  name="level" [(ngModel)]="book.level">
+                            <option *ngFor="let l of levels" value="{{l}}">{{l}}</option>
+                        </select>                    
+                    </div>
+                   
+                    <div class="form-group mt-2">
+                        <span for="section">section : </span>
+                        <select name="section" [(ngModel)]="book.section">
+                            <option *ngFor="let s of sections" value="{{s}}">{{s}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="book.publisher" class="form-control" name="publisher">
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="book.author" class="form-control" name="author">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary float-center mt-2">Save</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- accessory  -->
+<div *ngIf="activeBlock==='editAccessory'" class="row">
+
+    <div class="col-md-3 mx-auto">
+        <div class="card rounded-2">
+            <div class="card-header">
+                <h3 class="mb-0">Update {{accessory}}</h3>
+            </div>
+            <div class="card-body">
+                <form novalidate (ngSubmit)="updateAccessory(signupform.value)" #signupform = "ngForm" >
+                    
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="accessory.id" class="form-control"  name ="id" disabled>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="accessory.designation" class="form-control" >
+                    </div>
+                   
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="accessory.price" class="form-control" disabled>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <input type="text" [(ngModel)]="accessory.mark" class="form-control" name="address">
+                    </div>
+                    <button type="submit" [disabled]="!signupform.valid" class="btn btn-primary float-center mt-2">Save</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+

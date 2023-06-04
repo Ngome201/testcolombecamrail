@@ -1,0 +1,115 @@
+<div class="my-3">
+    <b>You have to choose one mode of selection in order to 
+    </b>
+</div>
+<div>
+    <b>display the list of the given type of items
+    </b>
+</div>
+<nav class="row my-3">
+    <div class="d-flex justify-content-between  bg-light bg-gradient">
+        <button class="btn btn-secondary" (click)="setEB()">Exercise Book</button>
+        <button class="btn btn-secondary" (click)="setB()">Book</button>
+        <button class="btn btn-secondary" (click)="setA()">Accessory</button>       
+    </div>
+    
+</nav>
+<div class="table-responsive mt-2" *ngIf="activeBlock==='table'">
+    <table class="table table-striped" *ngIf="isActive === 1">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>designation</th>
+                <th>pages</th>
+                <th>shape</th>
+                <th>type</th>
+                <th>mark</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <tr *ngFor="let item of exerciseBooks|async">
+                <td> </td>
+                <td>{{item.designation}}</td>
+                <td>{{item.pages}}</td>
+                <td>{{item.shape}}</td>
+                <td>{{item.type}}</td>
+                <td>{{item.mark}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <a class="btn btn-success" (click)="addBillItem(item.id,'exerciseBook')">
+                        +
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-warning" (click)="decBillItem(item.id,'exerciseBook')">
+                        -
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped" *ngIf="isActive === 2">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>level</th>
+                <th>designation</th>
+                <th>publisher</th>
+                <th>author</th>
+                <th>section</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <tr *ngFor="let item of books|async">
+                <td> </td>
+                <td>{{item.level}}</td>
+                <td>{{item.designation}}</td>
+                <td>{{item.publisher}}</td>
+                <td>{{item.author}}</td>
+                <td>{{item.section}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <a class="btn btn-success" (click)="addBillItem(item.id,'book')">
+                        +
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-warning" (click)="decBillItem(item.id,'book')">
+                        -
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped" *ngIf="isActive === 3">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>designation</th>
+                <th>mark</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <tr *ngFor="let item of accessories|async">
+                <td> </td>
+                <td>{{item.designation}}</td>
+                <td>{{item.mark}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <a class="btn btn-success" (click)="addBillItem(item.id,'accessory')">
+                        +
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-warning" (click)="decBillItem(item.id,'accessory')">
+                        -
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

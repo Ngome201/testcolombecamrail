@@ -1,0 +1,27 @@
+<div class = "table-responsive">
+        
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>username</th>
+                <th>lastname</th>
+                <th>matricule</th>
+                <th>N°CNI</th>
+                <th>address</th>
+                <th>tel</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <tr *ngFor = 'let user of camrails|async'>
+                <td></td>
+                <td>{{user.username}}</td>
+                <td>{{user.lastname}}</td>
+                <td>{{user.matricule}}</td>
+                <td>{{user.cni}}</td>
+                <td>{{user.address}}</td>
+                <td>{{user.tel}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

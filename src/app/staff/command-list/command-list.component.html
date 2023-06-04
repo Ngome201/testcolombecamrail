@@ -1,0 +1,119 @@
+<nav class="row">
+    <div class="col-auto">
+        <button class="btn btn-secondary" (click)="setUndelivered()">Undelivered</button>
+        <button class="btn btn-secondary mx-2" (click)="setDelivered()">Delivered</button>
+    </div>
+    
+</nav>
+<div class="table-responsive mt-2" *ngIf="isActive==='commandList'" >
+    <table class="table table-striped" *ngIf="activeBlock==='UNDELIVERED'">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>client</th>
+                <th>total Items</th>
+                <th>total Amount</th>
+                <th>status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let command of commands">
+                <td *ngIf="command.status==='UNDELIVERED'"> </td>
+                <td *ngIf="command.status==='UNDELIVERED'">{{command.username}}</td>
+                <td *ngIf="command.status==='UNDELIVERED'">{{command.totalItems}}</td>
+                <td *ngIf="command.status==='UNDELIVERED'">{{command.totalAmount}}</td>
+                <td *ngIf="command.status==='UNDELIVERED'">{{command.status}}</td>
+                <td *ngIf="command.status==='UNDELIVERED'">
+                    <a class="btn btn-primary" (click)="commandDetails (command.id,command.totalItems,command.totalAmount,command.createdAt)">
+                        view command
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped" *ngIf="activeBlock === 'DELIVERED'">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>client</th>
+                <th>total Items</th>
+                <th>total Amount</th>
+                <th>status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let command of commands" >
+                <td *ngIf="command.status==='DELIVERED'"> </td>
+                <td *ngIf="command.status==='DELIVERED'">{{command.username}}</td>
+                <td *ngIf="command.status==='DELIVERED'">{{command.totalItems}}</td>
+                <td *ngIf="command.status==='DELIVERED'">{{command.totalAmount}}</td>
+                <td *ngIf="command.status==='DELIVERED'">{{command.status}}</td>
+                <td *ngIf="command.status==='DELIVERED'">
+                    <a class="btn btn-primary" (click)="commandDetails (command.id,command.totalItems,command.totalAmount,command.createdAt)">
+                        view command
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<div *ngIf="isActive ==='detailsCommand'" class="printCommand">
+    <h1>La Colombe Invoice Summary</h1>
+    <div class="d-flex">
+        <div>
+            <b>
+                <h3 class="mx-3">client: {{user.username}}</h3>
+                <h3 class="mx-3">matricule:  {{user.matricule}}</h3>
+                <h3 class="mx-3">tel:  {{user.tel}}</h3>
+                <h3 class="mx-3">cni:  {{user.cni}}</h3>
+
+         </b> 
+         </div>
+        <div>
+           <b>
+            <h3 class="mx-3">address : {{user.address}}</h3>
+            <h3 class="mx-3">date : {{date}}</h3>
+            <h3 class="mx-3">total Items : {{totalItems}}</h3>
+            <h3 class="mx-3">total Amount : {{totalAmount}} fcfa</h3>
+        </b> 
+        </div>
+        
+        
+    </div>
+    <hr>
+    <div class="table-responsive mt-2" >
+        <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>N° </th>
+                    <th>designation</th>
+                    <th>unit price</th>
+                    <th>quantity</th>
+                    <th>total price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of billItems">
+                    <td> </td>
+                    <td>{{item.designation}}</td>
+                    <td>{{item.unitPrice}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.totalPrice}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div *ngIf="activeBlock==='UNDELIVERED'">
+        <a class="text-center btn btn-success" (click)="sendCommand(commandId)">Send Command</a>
+    </div>
+    <div *ngIf="activeBlock==='DELIVERED'">
+        <a class="text-center btn btn-secondary" (click)="print()">Send Command</a>
+
+    </div>
+</div>

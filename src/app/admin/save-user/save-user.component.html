@@ -1,0 +1,54 @@
+<h1 style = "text-align: center;">User registration</h1>
+
+    <div class="row">
+
+        <div class="col-md-3 mx-auto">
+            <div class="card rounded-2">
+                <div class="card-header">
+                    <h3 class="mb-0">Register </h3>
+                </div>
+                <div class="card-body">
+					        <form novalidate (ngSubmit)="signup()" [formGroup] ="signupform">
+                        
+                    <div class="form-group mt-2">
+                      <input type="text" placeholder="username" class="form-control" formControlName ="username">
+                    </div>
+                  
+                    <div class="form-group mt-2">
+                      <input type="text" placeholder="lastname" class="form-control" formControlName ="lastname">
+                    </div>
+
+                    <div class="form-group mt-2">
+                      <input type="text" placeholder="tel" class="form-control" formControlName="tel">
+                    </div>
+
+                    <div class="form-group mt-2">
+                      <input type="text" placeholder="address" class="form-control" formControlName="address">
+                    </div>
+
+                    <div class="form-group mt-2">
+                      <input type="password" placeholder="cni" class="form-control" formControlName="password">
+                    </div>
+
+                    <div class="form-group mt-2">
+                      <input type="text" placeholder="matricule" class="form-control" formControlName="matricule">
+                    </div>
+
+                    <div class="form-group mt-2">
+                      <span>role  :</span>
+                      <select name="role" placeholder ="admin,camrail.." formControlName ="role" class="pl-5">
+                        <option value="admin">admin</option>
+                        <option value="staff">staff</option>
+                        <option value="camrail">camrail</option>
+                      </select>						
+                    </div>
+                    
+                    <button type="submit" [disabled]="!signupform.valid" class="btn btn-primary float-center mt-2">Save</button>
+
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
