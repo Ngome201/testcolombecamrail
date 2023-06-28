@@ -46,13 +46,13 @@ export class CamrailHomeComponent {
                                     console.log(data);
                                   })
     localStorage.removeItem("billId")
-    }
-    
-   
+
     this.printTag = document.getElementById("printTag")
     this.printTag.style.display = "block"
     }
-    logout(){
+  }
+  logout(){
       this.userService.logout()
-    }
+  }
+
 }
