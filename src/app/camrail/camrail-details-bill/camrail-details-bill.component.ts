@@ -15,6 +15,9 @@ export class CamrailDetailsBillComponent {
   date : any;
   name : any;
   matricule : any;
+  printTag : any;
+  validateTag : any;
+
 
   constructor(
     private billService : BillService,
@@ -28,6 +31,10 @@ export class CamrailDetailsBillComponent {
       this.date = this.datePipe.transform((new Date),'dd/MM/yyyy h:mm:ss')
       this.matricule = localStorage.getItem('matricule')
       this.name = localStorage.getItem('username')
+      this.printTag = document.getElementById("printTag")
+      this.printTag.style.display = "none"
+      this.validateTag = document.getElementById("validateTag")
+      this.validateTag.style.display = "block"
     })
   }
   cancelBill(){

@@ -3,18 +3,21 @@ import { Injectable } from '@angular/core';
 import { ErrorHandlerService } from './error-handler.service';
 import { Router } from '@angular/router';
 import {catchError, Observable,first, tap} from 'rxjs'
+import { VariablesService } from './variables.service';
 @Injectable({
   providedIn: 'root'
 })
 export class CommandService {
-  commandUrl = "https://colombe-api.onrender.com/colombe/api/v0/command";
+  commandUrl :any
   // commandUrl = "http://localhost:3000/colombe/api/v0/command";
   httpOptions : {headers :HttpHeaders} = {headers:new HttpHeaders({'content-Type':'application/json'})}
   constructor(
     private http : HttpClient,
     private errorHandlerService : ErrorHandlerService,
-    private router : Router
-  ) { }
+    private router : Router,
+    private variables : VariablesService) {
+      this.commandUrl = variables.url+"command" 
+    }
   
   commandList():Observable<any>{
     return this.http

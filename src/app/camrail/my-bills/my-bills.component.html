@@ -11,7 +11,7 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody  id="myTable">
             <tr *ngFor="let command of commands">
                 <td> </td>
                 <td>{{command.totalItems}}</td>
@@ -37,12 +37,12 @@
                 <h3 class="mx-3">client: {{user.username}}</h3>
                 <h3 class="mx-3">matricule:  {{user.matricule}}</h3>
                 <h3 class="mx-3">tel:  {{user.tel}}</h3>
+                <h3 class="mx-3">address : {{user.address}}</h3>
 
          </b> 
          </div>
         <div>
            <b>
-            <h3 class="mx-3">address : {{user.address}}</h3>
             <h3 class="mx-3">date : {{date}}</h3>
             <h3 class="mx-3">total Items : {{totalItems}}</h3>
             <h3 class="mx-3">total Amount : {{totalAmount}} fcfa</h3>
@@ -64,7 +64,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
                 <tr *ngFor="let item of billItems">
                     <td> </td>
                     <td>{{item.designation}}</td>
@@ -78,7 +78,4 @@
 
     </div>
     
-    <div class="text-center">
-        <a class="btn btn-secondary" (click)="print()">Send Command</a>
-    </div>
 </div>

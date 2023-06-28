@@ -6,19 +6,22 @@ import {catchError, Observable,first, tap} from 'rxjs'
 import {ExerciseBook} from '../interfaces/ExerciseBook'
 import {Book} from '../interfaces/Book'
 import { Accessory } from '../interfaces/Accessory';
+import { VariablesService } from './variables.service';
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
-  itemUrl = 'https://colombe-api.onrender.com/colombe/api/v0/item'
+  itemUrl : any
   // itemUrl = 'http://localhost:3000/colombe/api/v0/item'
   httpOptions : {headers :HttpHeaders} = {headers:new HttpHeaders({'content-Type':'application/json'})}
 
   constructor(
     private http : HttpClient,
     private errorHandlerService : ErrorHandlerService,
-    private router : Router
-  ) { }
+    private router : Router,
+    private variables : VariablesService) {
+      this.itemUrl = variables.url+"item"
+    }
   saveExerciseBook(exerciseBook : Omit<ExerciseBook,'id'>) : Observable <ExerciseBook>{
     console.log(exerciseBook)
     return this.http

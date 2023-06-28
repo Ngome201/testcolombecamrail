@@ -33,6 +33,7 @@ export class MyBillsComponent {
     this.totalItems = totalItems;
     this.totalAmount = totalAmount
     this.commandId = commandId
+    this.date = createdAt
 
     this.billItems = this.commandService.detailsCommand(commandId).subscribe((data)=>{
       this.billItems = data.billItems;

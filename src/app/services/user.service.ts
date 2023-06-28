@@ -4,13 +4,14 @@ import { catchError,tap, first, Observable, BehaviorSubject } from 'rxjs';
 import { ErrorHandlerService } from './error-handler.service';
 import { Router } from '@angular/router';
 import {User} from '../interfaces/User'
+import { VariablesService } from './variables.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  userUrl ="https://colombe-api.onrender.com/colombe/api/v0/user"
-
+  // userUrl ="https://colombe-api.onrender.com/colombe/api/v0/user"
+  userUrl :any
   // userUrl ="http://localhost:3000/colombe/api/v0/user"
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false)
   userId : any
@@ -20,7 +21,10 @@ export class UserService {
   constructor(
     private http : HttpClient,
     private errorHandlerService : ErrorHandlerService,
-    private router : Router) { }
+    private router : Router,
+    private variables : VariablesService) {
+      this.userUrl = variables.url+"user"
+     }
     
   signup(user : Omit <User,"id">): Observable<User>{
       
@@ -114,6 +118,10 @@ export class UserService {
                 catchError(this.errorHandlerService.handleError<User>('update'))
                )
   }
-
+  logout(){
+    localStorage.removeItem('token')
+    this.isUserLoggedIn$.next(false);
+    this.router.navigate(["signIn"])
+  }
 
 }

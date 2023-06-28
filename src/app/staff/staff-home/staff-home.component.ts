@@ -23,8 +23,6 @@ export class StaffHomeComponent implements OnInit{
       })
   }
   logout(){
-    localStorage.removeItem('token')
-    this.userService.isUserLoggedIn$.next(false);
-    this.router.navigate(["signIn"])
+    this.userService.logout()
   }
 }
