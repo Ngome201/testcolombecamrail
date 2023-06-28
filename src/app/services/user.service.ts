@@ -9,9 +9,9 @@ import {User} from '../interfaces/User'
   providedIn: 'root'
 })
 export class UserService {
-  // userUrl ="https://colombe-api.onrender.com/colombe/api/v0/user"
+  userUrl ="https://colombe-api.onrender.com/colombe/api/v0/user"
 
-  userUrl ="http://localhost:3000/colombe/api/v0/user"
+  // userUrl ="http://localhost:3000/colombe/api/v0/user"
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false)
   userId : any
   role : any

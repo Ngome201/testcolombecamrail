@@ -10,8 +10,8 @@ import { Accessory } from '../interfaces/Accessory';
   providedIn: 'root'
 })
 export class ItemService {
-  // itemUrl = 'https://colombe-api.onrender.com/colombe/api/v0/item'
-  itemUrl = 'http://localhost:3000/colombe/api/v0/item'
+  itemUrl = 'https://colombe-api.onrender.com/colombe/api/v0/item'
+  // itemUrl = 'http://localhost:3000/colombe/api/v0/item'
   httpOptions : {headers :HttpHeaders} = {headers:new HttpHeaders({'content-Type':'application/json'})}
 
   constructor(
