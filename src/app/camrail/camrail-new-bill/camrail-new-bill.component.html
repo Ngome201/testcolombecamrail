@@ -12,10 +12,10 @@
     </div>
     
 </nav>
-<div>
+<!-- <div>
     <span> Total Items : </span>
     <span> Total Amount : </span>
-</div>
+</div> -->
 <div class="table-responsive mt-2" *ngIf="activeBlock==='table'">
     <table class="table table-striped" *ngIf="isActive === 1">
         <thead>
@@ -39,19 +39,19 @@
                 <td>{{item.mark}}</td>
                 <td>{{item.price}}</td>
                 <td>
-                    <a class="btn btn-success" (click)="addBillItem(item.id,'exerciseBook')">
+                    <a class="btn btn-success" (click)="addBillItem(item.id,'exerciseBook')" onclick="alert('added')">
                         +
                     </a>
                 </td>
                 <td>
-                    <a class="btn btn-warning" (click)="decBillItem(item.id,'exerciseBook')">
+                    <a class="btn btn-warning" (click)="decBillItem(item.id,'exerciseBook')" onclick="alert('subtracted')">
                         -
                     </a>
                 </td>
-                <td>
+                <!-- <td>
                     <input type="text" class='inp'>
 
-                </td>
+                </td> -->
             </tr>
         </tbody>
     </table>
@@ -77,12 +77,12 @@
                 <td>{{item.section}}</td>
                 <td>{{item.price}}</td>
                 <td>
-                    <a class="btn btn-success" (click)="addBillItem(item.id,'book')">
+                    <a class="btn btn-success" (click)="addBillItem(item.id,'book')" onclick="alert('added')">
                         +
                     </a>
                 </td>
                 <td>
-                    <a class="btn btn-warning" (click)="decBillItem(item.id,'book')">
+                    <a class="btn btn-warning" (click)="decBillItem(item.id,'book')" onclick="alert('subtracted')">
                         -
                     </a>
                 </td>
@@ -105,12 +105,12 @@
                 <td>{{item.mark}}</td>
                 <td>{{item.price}}</td>
                 <td>
-                    <a class="btn btn-success" (click)="addBillItem(item.id,'accessory')">
+                    <a class="btn btn-success" (click)="addBillItem(item.id,'accessory')" onclick="alert('added')">
                         +
                     </a>
                 </td>
                 <td>
-                    <a class="btn btn-warning" (click)="decBillItem(item.id,'accessory')">
+                    <a class="btn btn-warning" (click)="decBillItem(item.id,'accessory')" onclick="alert('subtracted')">
                         -
                     </a>
                 </td>

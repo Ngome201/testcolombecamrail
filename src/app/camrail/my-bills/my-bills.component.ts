@@ -16,11 +16,13 @@ export class MyBillsComponent {
   totalAmount : any;
   totalItems : any;
   commandId : any;
+  matricule : any
 
   constructor(
     private commandService : CommandService
   ){
-    this.commandService.commandList().subscribe((commandList)=>{
+    this.matricule = localStorage.getItem('matricule')
+    this.commandService.myCommandList(this.matricule).subscribe((commandList)=>{
       this.commands = commandList;
       this.isActive = 'commandList'
 

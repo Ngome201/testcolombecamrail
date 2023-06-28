@@ -9,7 +9,6 @@ import {catchError, Observable,first, tap} from 'rxjs'
 export class CommandService {
   commandUrl = "https://colombe-api.onrender.com/colombe/api/v0/command";
   // commandUrl = "http://localhost:3000/colombe/api/v0/command";
-  matricule: any
   httpOptions : {headers :HttpHeaders} = {headers:new HttpHeaders({'content-Type':'application/json'})}
   constructor(
     private http : HttpClient,
@@ -24,10 +23,9 @@ export class CommandService {
                   catchError (this.errorHandlerService.handleError<any>('cannot create fetch command'))
                 )
   }
-  myCommandList():Observable<any>{
-    this.matricule = localStorage.getItem('matricule')
+  myCommandList(matricule : any):Observable<any>{
     return this.http
-                .get<any>(`${this.commandUrl}/myCommands/${this.matricule}`,this.httpOptions)
+                .get<any>(`${this.commandUrl}/myCommands/${matricule}`,this.httpOptions)
                 .pipe(
                   catchError(this.errorHandlerService.handleError<any>('cannot create fetch command'))
                 )
