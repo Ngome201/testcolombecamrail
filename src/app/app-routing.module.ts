@@ -15,11 +15,13 @@ import { CamrailNewBillComponent } from './camrail/camrail-new-bill/camrail-new-
 import { CamrailDetailsBillComponent } from './camrail/camrail-details-bill/camrail-details-bill.component';
 import { CommandListComponent } from './staff/command-list/command-list.component';
 import { CommandDetailComponent } from './staff/command-detail/command-detail.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { MyBillsComponent } from './camrail/my-bills/my-bills.component';
 const routes: Routes = [
   {path : "adminHome",component : AdminHomeComponent,children:[
     {path :"saveUser",component : SaveUserComponent},
     {path :"usersList",component : UsersListComponent},
-    ]
+    ], canActivate : [AuthGuardService]
   },
   
   {path : "staffHome", component : StaffHomeComponent,children : [
@@ -28,12 +30,14 @@ const routes: Routes = [
     {path :"itemsList",component : ItemsListComponent},
     {path :"commandsList",component : CommandListComponent},
     {path :"commandDetails",component : CommandDetailComponent},
-  ]},
+    ], canActivate : [AuthGuardService]
+  },
 
   {path : "camrailHome", component : CamrailHomeComponent,children:[
-    {path:"camrailItemsList",component : CamrailItemsListComponent},
+    {path :"camrailItemsList",component : CamrailItemsListComponent},
     {path :"camrailNewBill",component : CamrailNewBillComponent},
-    {path:"camrailDetailsBill",component : CamrailDetailsBillComponent}
+    {path :"camrailDetailsBill",component : CamrailDetailsBillComponent},
+    {path :"myBills", component : MyBillsComponent }
 
   ]
 

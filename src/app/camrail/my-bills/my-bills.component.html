@@ -1,0 +1,84 @@
+
+<div class="table-responsive mt-2" *ngIf="isActive==='commandList'" >
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>total Items</th>
+                <th>total Amount</th>
+                <th>date</th>
+                <th>status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let command of commands">
+                <td> </td>
+                <td>{{command.totalItems}}</td>
+                <td>{{command.totalAmount}}</td>
+                <td>{{command.createdAt}}</td>
+                <td>{{command.status}}</td>
+                <td>
+                    <a class="btn btn-primary" (click)="commandDetails (command.id,command.totalItems,command.totalAmount,command.createdAt)">
+                        view command
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div *ngIf="isActive ==='detailsCommand'" class="printCommand">
+    <h1>La Colombe Invoice Summary</h1>
+    <div class="d-flex">
+        <div>
+            <b>
+                <h3 class="mx-3">client: {{user.username}}</h3>
+                <h3 class="mx-3">matricule:  {{user.matricule}}</h3>
+                <h3 class="mx-3">tel:  {{user.tel}}</h3>
+
+         </b> 
+         </div>
+        <div>
+           <b>
+            <h3 class="mx-3">address : {{user.address}}</h3>
+            <h3 class="mx-3">date : {{date}}</h3>
+            <h3 class="mx-3">total Items : {{totalItems}}</h3>
+            <h3 class="mx-3">total Amount : {{totalAmount}} fcfa</h3>
+        </b> 
+        </div>
+        
+        
+    </div>
+    <hr>
+    <div class="table-responsive mt-2" >
+        <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>N° </th>
+                    <th>designation</th>
+                    <th>unit price</th>
+                    <th>quantity</th>
+                    <th>total price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of billItems">
+                    <td> </td>
+                    <td>{{item.designation}}</td>
+                    <td>{{item.unitPrice}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.totalPrice}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    
+    <div class="text-center">
+        <a class="btn btn-secondary" (click)="print()">Send Command</a>
+    </div>
+</div>

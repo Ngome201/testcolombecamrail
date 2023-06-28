@@ -35,6 +35,7 @@ export class CamrailHomeComponent {
                                   String(localStorage.getItem("cni"))).subscribe((data)=>{
                                     console.log(data);
                                   })
+    localStorage.removeItem("billId")
    
     }
 }

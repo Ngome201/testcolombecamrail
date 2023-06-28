@@ -71,11 +71,13 @@ export class CamrailNewBillComponent {
   }
   addBillItem(itemId:number,itemType : String){
     const billId = localStorage.getItem("billId");
+    
     this.billService.addBillItem(String(billId),String(itemId),itemType)
                     .subscribe((data)=>{
                       console.log(data)
 
                     })
+    
   }
   decBillItem(itemId:number,itemType : String){
     const billId = localStorage.getItem("billId");

@@ -26,7 +26,7 @@ export class SignInComponent implements OnInit{
       
     })
   }
-  signin() : void{
+  signIn() : void{
     this.userService.signin(this.signinform.value.matricule, this.signinform.value.cni)
     .subscribe((msg)=>{
       console.log(msg)

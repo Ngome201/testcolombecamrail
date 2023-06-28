@@ -1,19 +1,21 @@
-<div class="my-3">
-    <b>You have to choose one mode of selection in order to 
-    </b>
+<div class="my-3 text-center">
+    <b>You have to choose one mode of selection in order to</b>
 </div>
-<div>
-    <b>display the list of the given type of items
-    </b>
+<div class="text-center">
+    <b>display the list of the given type of items</b>
 </div>
 <nav class="row my-3">
-    <div class="d-flex justify-content-between  bg-light bg-gradient">
+    <div class="d-flex justify-content-between bg-light bg-gradient btn btn-group">
         <button class="btn btn-secondary" (click)="setEB()">Exercise Book</button>
         <button class="btn btn-secondary" (click)="setB()">Book</button>
         <button class="btn btn-secondary" (click)="setA()">Accessory</button>       
     </div>
     
 </nav>
+<div>
+    <span> Total Items : </span>
+    <span> Total Amount : </span>
+</div>
 <div class="table-responsive mt-2" *ngIf="activeBlock==='table'">
     <table class="table table-striped" *ngIf="isActive === 1">
         <thead>
@@ -45,6 +47,10 @@
                     <a class="btn btn-warning" (click)="decBillItem(item.id,'exerciseBook')">
                         -
                     </a>
+                </td>
+                <td>
+                    <input type="text" class='inp'>
+
                 </td>
             </tr>
         </tbody>

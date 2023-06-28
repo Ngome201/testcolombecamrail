@@ -9,7 +9,9 @@ import {User} from '../interfaces/User'
   providedIn: 'root'
 })
 export class UserService {
-  userUrl ="https://colombe-api.onrender.com/colombe/api/v0/user"
+  // userUrl ="https://colombe-api.onrender.com/colombe/api/v0/user"
+
+  userUrl ="http://localhost:3000/colombe/api/v0/user"
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false)
   userId : any
   role : any
@@ -33,26 +35,24 @@ export class UserService {
                 );
     }
 
-  signin(matricule : Pick <User,"matricule">, password : Pick <User,"cni">): Observable<{
-    token : string; userId : Pick <User,"id">
-  }> {
+  signin(matricule : Pick <User,"matricule">, cni : Pick <User,"cni">): Observable<any> {
       
       return this.http
-      .post<any>(`${this.userUrl}/signIn`,{matricule,password},this.httpOptions)
+      .post<any>(`${this.userUrl}/signIn`,{matricule,cni},this.httpOptions)
       .pipe(
         first(),
         tap((tokenObject : {token : string; 
                             userId : Pick <User,"id">, 
                             role : Pick <User,"role">,
                             matricule : Pick <User,"matricule">,
-                            username : Pick <User,"username">,
-                            cni : Pick<User,"cni">
-                          })=>{
+                            username : Pick <User,"username">
+                            // cni : Pick<User,"cni">
+                          })=>{ 
           this.userId = tokenObject.userId;
           localStorage.setItem("token",tokenObject.token)
           localStorage.setItem("username",String(tokenObject.username))
           localStorage.setItem("matricule",String(tokenObject.matricule))
-          localStorage.setItem("cni",String(tokenObject.cni))
+          // localStorage.setItem("cni",String(tokenObject.cni))
           
           this.isUserLoggedIn$.next(true);
           
@@ -68,7 +68,7 @@ export class UserService {
           }
         }),
         catchError(this.errorHandlerService.handleError<{
-          token : string; userId : Pick <User,"id">
+          token : string
         }>("signup"))
       );
     }

@@ -56,13 +56,6 @@ export class CommandListComponent {
     this.activeBlock='DELIVERED'
   }
   print(){
-    let printContents = document.getElementsByClassName("printCommand");
-     let originalContents = document.body.innerHTML;
-
-     document.body.innerHTML = printContents[0].innerHTML;
-
-     window.print();
-
-     document.body.innerHTML = originalContents;
-  }
+    this.commandService.print()
+    }
 }

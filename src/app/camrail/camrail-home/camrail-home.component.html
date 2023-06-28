@@ -1,16 +1,16 @@
-<h1 class="header">hello {{username}} {{matricule}} </h1>
-<div class="my-3 d-flex justify-content-between bg-light bg-gradient" >
-    <div><a class="btn btn-primary" routerLink="/camrailHome/camrailItemsList">articles' list </a></div>
-    <div><a class="btn btn-primary" routerLink="/camrailHome/camrailNewBill" (click)="addBill()"> new Invoice </a></div>
-    <div><a class="btn btn-primary" routerLink="/camrailHome/camrailDetailsBill"> active Invoice </a></div>
-    <!-- <div><a class="btn btn-primary mx-2" routerLink="/camrailHome/MyBills"> all Invoices </a></div> -->
-    <div><a class="btn btn-success" (click)="validateBill()"> Validate Invoice</a></div>
+<h1 class="header text-center">hello {{username}} {{matricule}} </h1>
+<div class="my-3 d-flex justify-content-between btn btn-group" >
+    <a class="btn btn-primary" routerLink="/camrailHome/camrailItemsList">articles' list </a>
+    <a class="btn btn-primary" routerLink="/camrailHome/camrailNewBill" (click)="addBill()"> new Invoice </a>
+    <a class="btn btn-primary" routerLink="/camrailHome/camrailDetailsBill"> active Invoice </a>
+    <a class="btn btn-primary" routerLink="/camrailHome/myBills"> My Command </a>
+    <a class="btn btn-success" (click)="validateBill()"> Validate Invoice</a>
 
 </div>
 
 
 <router-outlet></router-outlet>
-<footer>
+<footer >
     <div>
          contact Us : 699-847-383
     </div>

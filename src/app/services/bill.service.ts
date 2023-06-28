@@ -9,7 +9,8 @@ import { Bill } from '../interfaces/Bill';
   providedIn: 'root'
 })
 export class BillService {
-  billUrl = 'https://colombe-api.onrender.com/colombe/api/v0/bill'
+  // billUrl = 'https://colombe-api.onrender.com/colombe/api/v0/bill'
+  billUrl = 'http://localhost:3000/colombe/api/v0/bill'
   httpOptions : {headers :HttpHeaders} = {headers:new HttpHeaders({'content-Type':'application/json'})}
 
   constructor(
@@ -48,10 +49,10 @@ export class BillService {
   }
 
   validateBill(billId:String,
-              cni:String
+              maticule:String
               ):Observable<any>{
     return this.http
-    .get<any>(`${this.billUrl}/validateBill/${billId}/${cni}`,
+    .get<any>(`${this.billUrl}/validateBill/${billId}/${maticule}`,
                           this.httpOptions)
     .pipe(
       catchError (this.errorHandlerService.handleError<any>('item seems to be not found'))

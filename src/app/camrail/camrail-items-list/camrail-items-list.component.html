@@ -1,18 +1,16 @@
 
-<div>
+<div class="text-center">
     <b class="my-3">Consult the list of the choosen item</b>
 </div>
-<div>
-    <b class="my-3">If you found something you need, then click on new Bill</b>
+<div class="text-center">
+    <b class="my-3">If you found something you need, then click on new Invoice</b>
 </div>
-<nav class="row">
-    <div class="col-auto">
-        <button class="btn btn-secondary" (click)="setEB()">Exercise Book</button>
-        <button class="btn btn-secondary mx-2" (click)="setB()">Book</button>
-        <button class="btn btn-secondary" (click)="setA()">Accessory</button>       
-    </div>
+<div class="my-3 d-flex justify-content-between btn btn-group">
+    <button class="btn btn-secondary" (click)="setEB()">Exercise Book</button>
+    <button class="btn btn-secondary" (click)="setB()">Book</button>
+    <button class="btn btn-secondary" (click)="setA()">Accessory</button>       
+</div>
     
-</nav>
 <div class="table-responsive mt-2" *ngIf="activeBlock==='table'">
     <table class="table table-striped" *ngIf="isActive === 1">
         <thead>

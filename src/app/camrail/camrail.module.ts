@@ -8,11 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { CamrailNewBillComponent } from './camrail-new-bill/camrail-new-bill.component';
 import { ItemBillListComponent } from '../staff/item-bill-list/item-bill-list.component';
 import { CamrailDetailsBillComponent } from './camrail-details-bill/camrail-details-bill.component';
+import { MyBillsComponent } from './my-bills/my-bills.component';
+import { CommandListComponent } from '../staff/command-list/command-list.component';
 
 const routes : Routes = [
   {path:"camrailItemsList",component : CamrailItemsListComponent},
   {path:"camrailNewBill",component : CamrailNewBillComponent},
-  {path:"camrailDetailsBill",component:CamrailDetailsBillComponent}
+  {path:"camrailDetailsBill",component : CamrailDetailsBillComponent},
+  {path:"myBills",component : MyBillsComponent}
   
 ]
 
@@ -21,7 +24,8 @@ const routes : Routes = [
     CamrailHomeComponent,
     CamrailItemsListComponent,
     CamrailNewBillComponent,
-    CamrailDetailsBillComponent
+    CamrailDetailsBillComponent,
+    MyBillsComponent
   ],
   imports: [
     CommonModule,
