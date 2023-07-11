@@ -1,0 +1,33 @@
+<div class="btn btn-group text-center">
+    <button class="btn btn-secondary" (click)="setExerciseBook()"> Exercise Book</button>
+    <button class="btn btn-secondary" (click)="setBook()">Book</button>
+    <button class="btn btn-secondary" (click)="setAccessory()">Accessory</button>
+</div>
+<div class="table-responsive mt-2" >
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>N° </th>
+                    <th>Designation</th>
+                    <th>createdAt</th>
+                    <th>quantity</th>
+                    <th>description</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let stock of stocks'>
+                    <td> </td>
+                    <td>{{stock.designation}}</td>
+                    <td>{{stock.createdAt}}</td>
+                    <td>{{stock.quantity}}</td>
+                    <td>{{stock.description}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    
+</div>

@@ -1,10 +1,19 @@
+<div class="text-center">
+    
+    <div class="form-group row mx-2">
+        <div class="col-8">
+            <input class="form-control" id="myInput" type="text" placeholder="Search an item ...">
+        </div>
+    </div>
+  
+</div>
 <h1 class="header text-center">hello {{username}} {{matricule}} </h1>
-<div class="my-3 d-flex justify-content-between btn btn-group" >
+<div class="d-flex flex-wrap justify-content-between btn btn-group" >
     <a class="btn btn-primary" routerLink="/camrailHome/camrailItemsList">articles' list </a>
     <a class="btn btn-primary" routerLink="/camrailHome/camrailNewBill" (click)="addBill()"> new Invoice </a>
     <a class="btn btn-primary" routerLink="/camrailHome/camrailDetailsBill"> active Invoice </a>
     <a class="btn btn-primary" routerLink="/camrailHome/myBills"> My Commands </a>
-    <button class="btn btn-success" (click)="validateBill()" id="validateTag"> Validate Invoice</button>
+
     <button class="btn btn-secondary" (click)="logout()"> logout </button>
 
 </div>

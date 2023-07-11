@@ -15,12 +15,14 @@ import { BillService } from './services/bill.service';
 import { DatePipe } from '@angular/common';
 import { CommandService } from './services/command.service';
 
-import {AuthInterceptorService} from './services/auth-interceptor.service'
+import {AuthInterceptorService} from './services/auth-interceptor.service';
+import { PrintComponent } from './print/print.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
+    PrintComponent,
 
   ],
   imports: [

@@ -27,7 +27,9 @@ export class SaveUserComponent implements OnInit {
       cni: new FormControl("",[Validators.required]),
       tel: new FormControl("",[Validators.required]),
       role: new FormControl("",[Validators.required]),
-      address: new FormControl("",[Validators.required]),
+      locationAddress: new FormControl("",[Validators.required]),
+      shippingAddress: new FormControl("",[Validators.required]),
+
       
     })
   }
@@ -35,7 +37,6 @@ export class SaveUserComponent implements OnInit {
     this.userService.signup(this.signupform.value)
     .subscribe((msg)=>{console.log(msg)})
     window.alert('user registerd successfully')
-    console.log (this.signupform.value)
-
+    window.location.reload()
   }
 }

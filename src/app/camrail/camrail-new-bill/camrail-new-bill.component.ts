@@ -30,6 +30,7 @@ export class CamrailNewBillComponent {
   exerciseBook : any
   book : any
   accessory : any
+  itemTag : any
 
   constructor(
     private itemService : ItemService,
@@ -41,7 +42,7 @@ export class CamrailNewBillComponent {
    setEB(){
      
     if (this.countClickedEB ==true){
-      this.exerciseBooks =this.itemService.listItems(1)
+      this.exerciseBooks =this.itemService.listItems("EXERCISE_BOOK")
       this.isActive = 1
       this.countClickedEB = false
     }         
@@ -53,7 +54,7 @@ export class CamrailNewBillComponent {
   setB(){
      
     if (this.countClickedB ==true){
-      this.books =this.itemService.listItems(2)
+      this.books =this.itemService.listItems("BOOK")
       this.isActive = 2
       this.countClickedB = false
     }         
@@ -62,29 +63,24 @@ export class CamrailNewBillComponent {
   }
   setA(){
     if (this.countClickedA ==true){
-      this.accessories =this.itemService.listItems(3)
+      this.accessories =this.itemService.listItems("ACCESSORY")
       this.isActive = 3
       this.countClickedA =false
     }         
     else {this.isActive = 3
       this.activeBlock ='table'}       
   }
-  addBillItem(itemId:number,itemType : String){
+  
+  addQuantity(itemId : any, itemType : String){
     const billId = localStorage.getItem("billId");
-    
-    this.billService.addBillItem(String(billId),String(itemId),itemType)
-                    .subscribe((data)=>{
-                      console.log(data)
+    let quantity = (<HTMLInputElement>document.getElementById(String(itemId))).value
+    alert(quantity)
 
-                    })
-    
-  }
-  decBillItem(itemId:number,itemType : String){
-    const billId = localStorage.getItem("billId");
-    this.billService.decBillItem(String(billId),String(itemId),itemType)
-                    .subscribe((data)=>{
-                      console.log(data)
+    this.billService.addQuantity(String(billId),itemId,itemType,quantity)
+    .subscribe((data)=>{
+      console.log(data)
 
-                    })
+    })
   }
+
 }

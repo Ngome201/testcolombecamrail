@@ -6,5 +6,6 @@ export interface User{
     matricule : string,
     role : string,
     tel : string,
-    address : string,
+    locationAddress : string,
+    shippingAddress : string,
   }

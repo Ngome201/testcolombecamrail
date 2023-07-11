@@ -29,9 +29,10 @@ export class SignInComponent implements OnInit{
   signIn() : void{
     this.userService.signin(this.signinform.value.matricule, this.signinform.value.cni)
     .subscribe((msg)=>{
-      console.log(msg)
+      if(msg!=undefined) alert(msg.msg)  
+      else alert("credential incorrect")    
     })
-    console.log (this.signinform.value)
+    // console.log (this.signinform.value)
 
   }
 

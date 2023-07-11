@@ -39,7 +39,7 @@ shapes : string[] =['A6','A5','A4']
    setEB(){
      
     if (this.countClickedEB ==true){
-      this.exerciseBooks =this.itemService.listItems(1)
+      this.exerciseBooks =this.itemService.listItems("EXERCISE_BOOK")
       this.isActive = 1
       this.countClickedEB = false
     }         
@@ -51,7 +51,7 @@ shapes : string[] =['A6','A5','A4']
   setB(){
      
     if (this.countClickedB ==true){
-      this.books =this.itemService.listItems(2)
+      this.books =this.itemService.listItems("BOOK")
       this.isActive = 2
       this.countClickedB = false
     }         
@@ -60,7 +60,7 @@ shapes : string[] =['A6','A5','A4']
   }
   setA(){
     if (this.countClickedA ==true){
-      this.accessories =this.itemService.listItems(3)
+      this.accessories =this.itemService.listItems("ACCESSORY")
       this.isActive = 3
       this.countClickedA =false
     }         

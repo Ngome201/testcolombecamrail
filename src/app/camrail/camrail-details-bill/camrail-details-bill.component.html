@@ -1,21 +1,29 @@
 <div class="printBill">
-    <h1>La Colombe Invoice Summary</h1>
-    <div class="d-flex">
-        <div>
-            <b>
-                <h3 class="mx-3">date : {{date}}</h3>
-                <h3 class="mx-3">client: {{name}} {{matricule}}</h3>
-         </b> 
-         </div>
-        <div>
-           <b>
-            <h3 class="mx-3">total Items : {{totalItems}}</h3>
-            <h3 class="mx-3">total Amount : {{totalAmount}} fcfa</h3>
-        </b> 
+    <h1> Invoice Summary </h1>
+    <div class="d-flex justify-content-between ">
+        <div class="d-flex ">
+            <div>
+                <b>
+                    <h5 class="mx-3">date : {{date}}</h5>
+                    <h5 class="mx-3">client: {{name}} {{matricule}}</h5>
+                </b> 
+            </div>
+            <div>
+                <b>
+                    <h5 class="mx-3">total Items : {{totalItems}}</h5>
+                    <h5 class="mx-3">total Amount : {{totalAmount}} XAF</h5>
+                </b> 
+            </div>
         </div>
-        
-        
+        <div>
+            <a class="btn btn-primary" id="printTag" routerLink="/print">print Bill</a>
+            <!-- <a class="btn btn-primary" id="printTag" (click)="printBill()">print Bill</a> -->
+            <button class="btn btn-success mx-2" (click)="validateBill()" id="validateTag"> Validate Invoice</button>
+          </div>
     </div>
+    
+    
+
     <hr>
     <div class="table-responsive mt-2" >
         <table class="table table-striped" >
@@ -27,6 +35,8 @@
                     <th>quantity</th>
                     <th>total price</th>
                     <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="myTable">
@@ -36,11 +46,22 @@
                     <td>{{item.unitPrice}}</td>
                     <td>{{item.quantity}}</td>
                     <td>{{item.totalPrice}}</td>
-                    <!-- <td>
-                        <a class="btn btn-primary" (click)="editExerciseBook (item.id)">
-                            Update
+                    <td>
+                        <a class="button btn btn-success" (click)="addBillItem(item.id)" >
+                            +
                         </a>
-                    </td> -->
+                    </td>
+                    <td>
+                        <a class="button btn btn-warning" (click)="decBillItem(item.id)" >
+                            -
+                        </a>
+                    </td>
+                    <td>
+                        <a class="button btn btn-danger" (click)="deleteBillItem(item.id)" >
+                            x
+                        </a>
+                    </td>
+                   
                 </tr>
             </tbody>
         </table>
@@ -48,9 +69,11 @@
     </div>
 
 </div>  
-<div class="d-flex">
-    <div><a class="btn btn-danger mx-2" (click)="cancelBill()">Cancel Current Invoice</a></div>
-    <div><a class="btn btn-success" (click)="backToBill()">Continue to add article</a></div>
-    <div><a class="btn btn-primary mx-2" id="printTag" (click)="printBill()">print Bill</a></div>
+<div class="d-flex ">
+    <div>
+        <a class="btn btn-danger mx-2" id="cancelBill" (click)="cancelBill()">Cancel Current Invoice</a>
+        <a class="btn btn-secondary" id="backToBill" (click)="backToBill()">Continue to add article</a>
+    </div>
+    
 </div> 
   

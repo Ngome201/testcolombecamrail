@@ -23,39 +23,65 @@ export class BillService {
     }
   addBill():Observable<Bill>{
     return this.http
-                .get<Bill>(`${this.billUrl}/addBill`,this.httpOptions)
+                .post<Bill>(`${this.billUrl}/addBill`,this.httpOptions)
                 .pipe(
                   catchError (this.errorHandlerService.handleError<Bill>('cannot create new bill'))
                 )
   }
-
-  addBillItem(billId:String,
-              itemId:String,
-              itemType:String):Observable<any>{
+  addQuantity(billId:String, itemId:String, itemType:String,quantity : string):Observable<any>{
     return this.http
-    .get<any>(`${this.billUrl}/addBillItem/${billId}/${itemId}/${itemType}`,
+    .put<any>(`${this.billUrl}/addQuantity`,{itemId,billId,itemType,quantity},
                           this.httpOptions)
     .pipe(
+      catchError (this.errorHandlerService.handleError<any>('item seems to be not found'))
+    )
+  }
+  addBillItem(billId:String,
+              billItemId:String):Observable<any>{
+    return this.http
+    .put<any>(`${this.billUrl}/addBillItem`,{billItemId,billId},
+                          this.httpOptions)
+    .pipe(
+      first(),
+      tap(()=>{
+      window.location.reload()
+    }),
       catchError (this.errorHandlerService.handleError<any>('item seems to be not found'))
     )
   }
 
   decBillItem(billId:String,
-              itemId:String,
-              itemType:String):Observable<any>{
+              billItemId:String):Observable<any>{
     return this.http
-    .get<any>(`${this.billUrl}/decBillItem/${billId}/${itemId}/${itemType}`,
+    .put<any>(`${this.billUrl}/decBillItem`,{billItemId,billId},
                           this.httpOptions)
     .pipe(
+      first(),
+      tap(()=>{
+      window.location.reload()
+    }),
       catchError (this.errorHandlerService.handleError<any>('item seems to be not found'))
     )
   }
-
+  deleteBillItem(billId:String,
+                  billItemId:String):Observable<any>{
+    return this.http
+    .put<any>(`${this.billUrl}/deleteBillItem`,{billItemId,billId},
+                          this.httpOptions)
+    .pipe(
+      first(),
+      tap(()=>{
+      window.location.reload()
+    }),
+      catchError (this.errorHandlerService.handleError<any>('item seems to be not found'))
+    )
+  }
+  
   validateBill(billId:String,
               matricule:String
               ):Observable<any>{
     return this.http
-    .get<any>(`${this.billUrl}/validateBill/${billId}/${matricule}`,
+    .put<any>(`${this.billUrl}/validateBill`,{matricule,billId},
                           this.httpOptions)
     .pipe(
       catchError (this.errorHandlerService.handleError<any>('item seems to be not found'))
@@ -73,7 +99,7 @@ export class BillService {
 
   cancelBill(billId:String):Observable<any>{
     return this.http
-    .get<any>(`${this.billUrl}/cancelBill/${billId}`,
+    .put<any>(`${this.billUrl}/cancelBill/${billId}`,
                           this.httpOptions)
     .pipe(
       catchError (this.errorHandlerService.handleError<any>('item seems to be not found'))

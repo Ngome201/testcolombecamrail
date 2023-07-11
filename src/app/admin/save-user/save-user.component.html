@@ -9,38 +9,68 @@
                 </div>
                 <div class="card-body">
 					        <form novalidate (ngSubmit)="signup()" [formGroup] ="signupform">
-                        
-                    <div class="form-group mt-2">
-                      <input type="text" placeholder="username" class="form-control" formControlName ="username">
-                    </div>
+                    
+                    <div class="form-group row mt-2">
+                      <label class="col-form-label col-4">Username</label>
+                      <div class="col-8">
+                        <input type="text" placeholder="username" class="form-control" formControlName ="username">
+                      </div>
+                    </div>  
                   
-                    <div class="form-group mt-2">
-                      <input type="text" placeholder="lastname" class="form-control" formControlName ="lastname">
+                    <div class="form-group row mt-2">
+                      <label class="col-form-label col-4">Lastname</label>
+                      <div class="col-8">
+                        <input type="text" placeholder="lastname" class="form-control" formControlName ="lastname">
+                      </div>
                     </div>
 
-                    <div class="form-group mt-2">
-                      <input type="text" placeholder="tel" class="form-control" formControlName="tel">
+                    <div class="form-group row mt-2">
+                      <label class="col-form-label col-4">Tel</label>
+                      <div class="col-8">
+                        <input type="text" placeholder="tel" class="form-control" formControlName="tel">
+                      </div>
                     </div>
 
-                    <div class="form-group mt-2">
-                      <input type="text" placeholder="address" class="form-control" formControlName="address">
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Location Address</label>
+                        <div class="col-8">
+                          <input type="text" placeholder="locationAddress" class="form-control" formControlName="locationAddress">
+                        </div>
                     </div>
 
-                    <div class="form-group mt-2">
-                      <input type="password" placeholder="cni" class="form-control" formControlName="cni">
+                    <div class="form-group row mt-2">
+                      <label class="col-form-label col-4">N° CNI</label>
+                      <div class="col-8">
+                        <input type="password" placeholder="cni" class="form-control" formControlName="cni">
+                      </div>
+                    </div>
+             
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Shipping Address</label>
+                        <div class="col-8">
+                          <input type="text" placeholder="shippingAddress" class="form-control" formControlName="shippingAddress">
+                        </div>
                     </div>
 
-                    <div class="form-group mt-2">
-                      <input type="text" placeholder="matricule" class="form-control" formControlName="matricule">
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Matricule</label>
+                        <div class="col-8">
+                          <input type="text" placeholder="matricule" class="form-control" formControlName="matricule">
+                        </div>
                     </div>
 
-                    <div class="form-group mt-2">
-                      <span>role  :</span>
-                      <select name="role" placeholder ="admin,camrail.." formControlName ="role" class="pl-5">
-                        <option value="admin">admin</option>
-                        <option value="staff">staff</option>
-                        <option value="camrail">camrail</option>
-                      </select>						
+              
+                    <div class="form-group row mt-2">
+                      
+                      <label class="col-form-label col-4">Role</label>
+                      <div class="col-8">
+
+                        <select name="role" placeholder ="admin,camrail.." formControlName ="role" class="form-select">
+                          <option value="ADMIN">ADMIN</option>
+                          <option value="STAFF">STAFF</option>
+                          <option value="CAMRAIL">CAMRAIL</option>
+                        </select>		
+                      </div>				
                     </div>
                     
                     <button type="submit" [disabled]="!signupform.valid" class="btn btn-primary float-center mt-2">Save</button>

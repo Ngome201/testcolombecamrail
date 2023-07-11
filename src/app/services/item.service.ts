@@ -22,45 +22,35 @@ export class ItemService {
     private variables : VariablesService) {
       this.itemUrl = variables.url+"item"
     }
-  saveExerciseBook(exerciseBook : Omit<ExerciseBook,'id'>) : Observable <ExerciseBook>{
+  saveExerciseBook(exerciseBook : Omit<ExerciseBook,'id'>) : Observable <any>{
     console.log(exerciseBook)
     return this.http
-                .post<ExerciseBook>(`${this.itemUrl}/saveItem`,exerciseBook,this.httpOptions)
+                .post<any>(`${this.itemUrl}/saveExerciseBook`,exerciseBook,this.httpOptions)
                 .pipe(
                   first(),
-                  tap(()=>{
-                    this.router.navigate(['staffHome'])
-                  }),
                   catchError(this.errorHandlerService.handleError<ExerciseBook>('save Item'))
                 )
   }
-  saveBook(book : Omit<Book,'id'>) : Observable <Book>{
+  saveBook(book : Omit<Book,'id'>) : Observable <any>{
     return this.http
-                .post<Book>(`${this.itemUrl}/saveItem`,book,this.httpOptions)
+                .post<any>(`${this.itemUrl}/saveBook`,book,this.httpOptions)
                 .pipe(
                   first(),
-                  tap(()=>{
-                    this.router.navigate(['staffHome'])
-                  }),
                   catchError(this.errorHandlerService.handleError<Book>('save Item'))
                 )
   }
-  saveAccessory(accessory : Omit<Accessory,'id'>) : Observable <Accessory>{
+  saveAccessory(accessory : Omit<Accessory,'id'>) : Observable <any>{
     return this.http
-                .post<Accessory>(`${this.itemUrl}/saveItem`,accessory,this.httpOptions)
+                .post<any>(`${this.itemUrl}/saveAccessory`,accessory,this.httpOptions)
                 .pipe(
                   first(),
-                  tap(()=>{
-                    this.router.navigate(['staffHome'])
-                  }),
                   catchError(this.errorHandlerService.handleError<Accessory>('save Item'))
                 )
   }
-  listItems(category : number): Observable<any>{
-    let cat :string = String(category)
+  listItems(category : String): Observable<any>{
     console.log('fetched')
     return this.http
-    .get<any>(`${this.itemUrl}/listItems/${cat}`,{responseType:"json"})
+    .get<any>(`${this.itemUrl}/listItems/${category}`,{responseType:"json"})
     .pipe(
       first(),
       catchError(this.errorHandlerService.handleError<any>('list cannot be retrieved'))

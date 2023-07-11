@@ -23,8 +23,8 @@ export class UsersListComponent {
     return this.userService.getUsers()
   }
 
-  deleteUser(id : any){
-    let valid = window.confirm(`are you sure you want to delete user${id}`)
+  deleteUser(id : any, username : string){
+    let valid = window.confirm(`are you sure you want to delete user${username}`)
     if(valid){
       this.userService.deleteUser(id).subscribe(()=>{
         this.users = this.getUsers()

@@ -34,23 +34,7 @@ export class CamrailHomeComponent {
                       console.log(bill)
                     })
   }
-  validateBill(){
-    this.billId = localStorage.getItem('billId')
-    if (this.billId == null) {
-      window.alert(" there's no current bill available ")
-      
-    } else {
-      window.confirm("are you sure you want to validate your bill ?")
-    this.billService.validateBill(String(localStorage.getItem("billId")),
-                                  String(localStorage.getItem("matricule"))).subscribe((data)=>{
-                                    console.log(data);
-                                  })
-    localStorage.removeItem("billId")
-
-    this.printTag = document.getElementById("printTag")
-    this.printTag.style.display = "block"
-    }
-  }
+ 
   logout(){
       this.userService.logout()
   }

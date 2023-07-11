@@ -10,6 +10,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ItemBillListComponent } from './item-bill-list/item-bill-list.component';
 import { CommandListComponent } from './command-list/command-list.component';
 import { CommandDetailComponent } from './command-detail/command-detail.component';
+import { SaveSupplierComponent } from './save-supplier/save-supplier.component';
+import { StockComponent } from './stock/stock.component';
+import { EditStockComponent } from './edit-stock/edit-stock.component';
+import { GlobalStockComponent } from './global-stock/global-stock.component';
 
 const routes : Routes = [
   {path:"camrailsList",component : CamrailsListComponent},
@@ -17,6 +21,10 @@ const routes : Routes = [
   {path:"itemsList",component : ItemsListComponent},
   {path:"commandsList",component : CommandListComponent},
   {path:"commandDetails",component : CommandDetailComponent},
+  {path:"saveSupplier",component : SaveSupplierComponent},
+  {path:"stock",component : StockComponent},
+  {path:"allStock",component : GlobalStockComponent},
+  {path:"stock/editStock/:itemId/:category",component : EditStockComponent},
   
 ]
 
@@ -29,7 +37,11 @@ const routes : Routes = [
     ItemsListComponent,
     ItemBillListComponent,
     CommandListComponent,
-    CommandDetailComponent
+    CommandDetailComponent,
+    SaveSupplierComponent,
+    StockComponent,
+    EditStockComponent,
+    GlobalStockComponent
   ],
   imports: [
     CommonModule,
@@ -41,13 +53,16 @@ const routes : Routes = [
   ],
   exports : [
     StaffHomeComponent,
-    RouterModule,
     CamrailsListComponent,
     SaveItemComponent,
     ItemsListComponent,
     ItemBillListComponent,
     CommandListComponent,
-    CommandDetailComponent
+    CommandDetailComponent,
+    SaveSupplierComponent,
+    StockComponent,
+    EditStockComponent,
+    GlobalStockComponent
   ]
 })
 export class StaffModule { }

@@ -23,11 +23,6 @@
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
-  "browser":{
-    "fs":false,
-    "path":false,
-    "os":false
-  },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.0.1",
     "@angular/cli": "~15.0.1",

@@ -7,9 +7,11 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./items-list.component.css']
 })
 export class ItemsListComponent {
+
   shapes : string[] =['A6','A5','A4']
-  types : string[] = ['HC','TP','GC','DL','SQ','PL','Dessin']
-  pages : string[] = ['32p','50p','100p','120p','144p','200p','288p','300p','400p']
+  types : string[] = ['HC(Hard Cover)','TP(Travaux Pratiques)','GC(Grands Carreaux)',
+                      'DL(Double Ligne)','SQ(Square)','PL(Plain)','Dessin']
+  pages : string[] = ['20L','32p','40L','50p','60L','80L','100p','120p','144p','200p','288p','300p','400p']
   levels : string[]=[]
   sections : string[] = ["Anglophone","Francophone"]
   
@@ -22,8 +24,7 @@ export class ItemsListComponent {
   accessories : any
  
   keys : any
-  isActive : number // determine the active Item which is been displayed
-                    // 1:ExerciseBook   2:Book    3:Accessory
+  isActive : string // determine the active Item which is been displayed
   activeBlock : string
 
   exerciseBook : any
@@ -33,44 +34,45 @@ export class ItemsListComponent {
   constructor(
     private itemService : ItemService
   ){
-    this.isActive=0
+    this.isActive = ""
     this.activeBlock ='table'
   }
    setEB(){
      
     if (this.countClickedEB ==true){
-      this.exerciseBooks =this.itemService.listItems(1)
-      this.isActive = 1
+      this.exerciseBooks =this.itemService.listItems("EXERCISE_BOOK")
+      this.isActive = "EXERCISE_BOOK"
       this.countClickedEB = false
     }         
     else 
-    {this.isActive = 1
+    {this.isActive = "EXERCISE_BOOK"
     this.activeBlock ='table'}
 
   }
   setB(){
      
     if (this.countClickedB ==true){
-      this.books =this.itemService.listItems(2)
-      this.isActive = 2
+      this.books =this.itemService.listItems("BOOK")
+      this.isActive = "BOOK"
       this.countClickedB = false
     }         
-    else {this.isActive = 2
+    else {this.isActive = "BOOK"
       this.activeBlock ='table'}       
   }
   setA(){
     if (this.countClickedA ==true){
-      this.accessories =this.itemService.listItems(3)
-      this.isActive = 3
+      this.accessories =this.itemService.listItems("ACCESSORY")
+      this.isActive = "ACCESSORY"
       this.countClickedA =false
-    }         
-    else {this.isActive = 3
+    }          
+    else {this.isActive = "ACCESSORY"
       this.activeBlock ='table'}       
   }
   editExerciseBook(id : any){
     this.itemService.editExerciseBook(id)
                     .subscribe((data)=>{
                       this.exerciseBook = data
+                      console.log(data)
                     })
     this.activeBlock = 'editExerciseBook'
   }
@@ -86,14 +88,18 @@ export class ItemsListComponent {
                         this.levels = ['PS','MS','GS','SIL','CP','CE1','CE2','CM1','CM2',
                         '6ème','5ème','4ème','3ème','2nd','1ère','Tle']
                       }
+                      console.log(data)
+
                     })
     this.activeBlock = 'editBook'
 
   }
   editAccessory(id : any){
-    this.itemService.editExerciseBook(id)
+    this.itemService.editAccessory(id)
                     .subscribe((data)=>{
                       this.accessory = data
+                      console.log(data)
+
                     })
     this.activeBlock = 'editAccessory'
 

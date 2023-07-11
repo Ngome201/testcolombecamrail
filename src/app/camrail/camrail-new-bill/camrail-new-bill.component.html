@@ -7,7 +7,7 @@
 <nav class="row my-3">
     <div class="d-flex justify-content-between bg-light bg-gradient btn btn-group">
         <button class="btn btn-secondary" (click)="setEB()">Exercise Book</button>
-        <button class="btn btn-secondary" (click)="setB()">Book</button>
+        <button class="btn btn-secondary" (click)="setB()">Text Book</button>
         <button class="btn btn-secondary" (click)="setA()">Accessory</button>       
     </div>
     
@@ -27,6 +27,7 @@
                 <th>type</th>
                 <th>mark</th>
                 <th>price</th>
+                <th>quantity</th>
             </tr>
         </thead>
         <tbody id="myTable">
@@ -38,20 +39,13 @@
                 <td>{{item.type}}</td>
                 <td>{{item.mark}}</td>
                 <td>{{item.price}}</td>
+               
                 <td>
-                    <a class="btn btn-success" (click)="addBillItem(item.id,'exerciseBook')" onclick="alert('added')">
-                        +
-                    </a>
+                    <input type="text" id="{{item.id}}">
                 </td>
                 <td>
-                    <a class="btn btn-warning" (click)="decBillItem(item.id,'exerciseBook')" onclick="alert('subtracted')">
-                        -
-                    </a>
+                    <a class="btn btn-primary" (click)="addQuantity(item.id,'EXERCISE_BOOK')">Add</a>
                 </td>
-                <!-- <td>
-                    <input type="text" class='inp'>
-
-                </td> -->
             </tr>
         </tbody>
     </table>
@@ -65,6 +59,7 @@
                 <th>author</th>
                 <th>section</th>
                 <th>price</th>
+                <th>quantity</th>
             </tr>
         </thead>
         <tbody id="myTable">
@@ -77,14 +72,10 @@
                 <td>{{item.section}}</td>
                 <td>{{item.price}}</td>
                 <td>
-                    <a class="btn btn-success" (click)="addBillItem(item.id,'book')" onclick="alert('added')">
-                        +
-                    </a>
+                    <input type="text" id="{{item.id}}">
                 </td>
                 <td>
-                    <a class="btn btn-warning" (click)="decBillItem(item.id,'book')" onclick="alert('subtracted')">
-                        -
-                    </a>
+                    <a class="btn btn-primary" (click)="addQuantity(item.id,'BOOK')">Add</a>
                 </td>
             </tr>
         </tbody>
@@ -96,6 +87,8 @@
                 <th>designation</th>
                 <th>mark</th>
                 <th>price</th>
+                <th>quantity</th>
+
             </tr>
         </thead>
         <tbody id="myTable">
@@ -105,14 +98,10 @@
                 <td>{{item.mark}}</td>
                 <td>{{item.price}}</td>
                 <td>
-                    <a class="btn btn-success" (click)="addBillItem(item.id,'accessory')" onclick="alert('added')">
-                        +
-                    </a>
+                    <input type="text" id="{{item.id}}">
                 </td>
                 <td>
-                    <a class="btn btn-warning" (click)="decBillItem(item.id,'accessory')" onclick="alert('subtracted')">
-                        -
-                    </a>
+                    <a class="btn btn-primary" (click)="addQuantity(item.id,'ACCESSORY')">Add</a>
                 </td>
             </tr>
         </tbody>

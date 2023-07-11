@@ -7,21 +7,21 @@ import { CommandService } from 'src/app/services/command.service';
   styleUrls: ['./command-list.component.css']
 })
 export class CommandListComponent {
-  activeBlock : string
   isActive : any
   commands : any
   billItems : any
   user : any
   totalAmount : any;
   totalItems : any;
-  date : any
+  date : any;
+  unsufficient : any;
   commandId : any
   constructor(
     private commandService : CommandService,
-  ){this.activeBlock ='UNDELIVERED'
-    this.commandService.commandList().subscribe((commandList)=>{
+  ){ 
+    this.isActive = 'commandList'
+    this.commandService.unDeliveredCommandList().subscribe((commandList)=>{
       this.commands = commandList;
-      this.isActive = 'commandList'
 
     })
   }
@@ -29,11 +29,17 @@ export class CommandListComponent {
 
   setUndelivered(){
     this.isActive = "commandList"
-    this.activeBlock = "UNDELIVERED"
+    this.commandService.unDeliveredCommandList().subscribe((commandList)=>{
+      this.commands = commandList;
+
+    })
   }
   setDelivered(){
     this.isActive = "commandList"
-    this.activeBlock = "DELIVERED"
+    this.commandService.deliveredCommandList().subscribe((commandList)=>{
+      this.commands = commandList;
+
+    })
   }
   commandDetails(commandId : String,totalItems:number,totalAmount:number,createdAt :any){
     this.isActive  = "detailsCommand"
@@ -48,13 +54,21 @@ export class CommandListComponent {
 
   }
   sendCommand(commandId:String){
-    window.confirm('are you sure that you want to send this command?')
-    this.commandService.sendCommand(commandId).subscribe((data)=>{
-      window.alert(data);
-    })
-    this.isActive="commandList"
-    this.activeBlock='DELIVERED'
+
+    if(window.confirm('are you sure that you want to send this command?')){
+
+      this.commandService.sendCommand(commandId).subscribe((data)=>{
+            if (data.msg =='unsufficient') {
+              this.unsufficient = data.unsufficient
+              this.isActive = 'unsufficient'
+            } else {
+              window.alert(data.msg);
+            }
+      })
+      this.isActive="commandList"
+    }
   }
+
   print(){
     this.commandService.print()
     }

@@ -1,0 +1,57 @@
+<h1> Invoice Summary </h1>
+<div class="d-flex justify-content-between ">
+    <div class="d-flex ">
+        <div>
+            <b>
+                <h3 class="mx-3">date : {{date}}</h3>
+                <h3 class="mx-3">client: {{name}} {{matricule}}</h3>
+            </b> 
+        </div>
+        <div>
+            <b>
+                <h3 class="mx-3">total Items : {{totalItems}}</h3>
+                <h3 class="mx-3">total Amount : {{totalAmount}} XAF</h3>
+            </b> 
+        </div>
+    </div>
+    <div>
+        <a class="btn btn-primary" id="printTag" (click)="printBill()">print Bill</a>
+
+    </div>
+</div>
+
+
+<hr>
+<div class="table-responsive mt-2" >
+    <table class="table table-striped" >
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>designation</th>
+                <th>unit price</th>
+                <th>quantity</th>
+                <th>total price</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <tr *ngFor="let item of billItems">
+                <td> </td>
+                <td>{{item.designation}}</td>
+                <td>{{item.unitPrice}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.totalPrice}}</td>
+               
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<h3> La Colombe vous remercie et vous souhaite une bonne rentrée scolaire</h3>
+<footer >
+    <div>
+        contact-Us : 699-847-383
+    </div>
+    <div>
+        email : lydiengome81@gmail.com
+    </div>
+</footer>

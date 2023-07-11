@@ -1,16 +1,16 @@
-<b class="my-3">You have to choose one mode of selection in order to 
+<b class="my-3 text-center">You have to choose one mode of selection in order to 
     display the list of the given type of items
 </b>
 <nav class="row">
     <div class="col-auto btn btn-group">
         <button class="btn btn-secondary" (click)="setEB()">Exercise Book</button>
-        <button class="btn btn-secondary" (click)="setB()">Book</button>
+        <button class="btn btn-secondary" (click)="setB()">Text Book</button>
         <button class="btn btn-secondary" (click)="setA()">Accessory</button>       
     </div>
     
 </nav>
 <div class="table-responsive mt-2" *ngIf="activeBlock==='table'">
-    <table class="table table-striped" *ngIf="isActive === 1">
+    <table class="table table-striped" *ngIf="isActive === 'EXERCISE_BOOK'">
         <thead>
             <tr>
                 <th>N° </th>
@@ -41,7 +41,7 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-striped" *ngIf="isActive === 2">
+    <table class="table table-striped" *ngIf="isActive === 'BOOK' ">
         <thead>
             <tr>
                 <th>N° </th>
@@ -72,7 +72,7 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-striped" *ngIf="isActive === 3">
+    <table class="table table-striped" *ngIf="isActive === 'ACCESSORY'">
         <thead>
             <tr>
                 <th>N° </th>
@@ -86,8 +86,8 @@
             <tr *ngFor="let item of accessories|async">
                 <td> </td>
                 <td>{{item.designation}}</td>
-                <td>{{item.quantity}}</td>
                 <td>{{item.mark}}</td>
+                <td>{{item.quantity}}</td>
                 <td>{{item.price}}</td>
                 <td>
                     <a class="btn btn-primary" (click)="editAccessory(item.id)">
@@ -209,7 +209,7 @@
     <div class="col-md-3 mx-auto">
         <div class="card rounded-2">
             <div class="card-header">
-                <h3 class="mb-0">Update {{accessory}}</h3>
+                <h3 class="mb-0">Update </h3>
             </div>
             <div class="card-body">
                 <form novalidate (ngSubmit)="updateAccessory(signupform.value)" #signupform = "ngForm" >
@@ -219,15 +219,15 @@
                     </div>
 
                     <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="accessory.designation" class="form-control" >
+                        <input type="text" [(ngModel)]="accessory.designation" class="form-control" name ="designation" >
                     </div>
                    
                     <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="accessory.price" class="form-control" disabled>
+                        <input type="text" [(ngModel)]="accessory.price" class="form-control" name="price">
                     </div>
 
                     <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="accessory.mark" class="form-control" name="address">
+                        <input type="text" [(ngModel)]="accessory.mark" class="form-control" name="mark">
                     </div>
                     <button type="submit" [disabled]="!signupform.valid" class="btn btn-primary float-center mt-2">Save</button>
 

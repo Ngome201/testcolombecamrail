@@ -1,0 +1,95 @@
+ <div class="btn btn-group text-center">
+    <button class="btn btn-secondary" (click)="setExerciseBook()"> Exercise Book</button>
+    <button class="btn btn-secondary" (click)="setBook()">Book</button>
+    <button class="btn btn-secondary" (click)="setAccessory()">Accessory</button>
+</div>
+<div class="table-responsive mt-2">
+    <table class="table table-striped" *ngIf="isActive === 'EXERCISE_BOOK'">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>designation</th>
+                <th>pages</th>
+                <th>shape</th>
+                <th>type</th>
+                <th>quantity</th>
+                <th>mark</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of exerciseBooks|async">
+                <td> </td>
+                <td>{{item.designation}}</td>
+                <td>{{item.pages}}</td>
+                <td>{{item.shape}}</td>
+                <td>{{item.type}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.mark}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <a class="btn btn-primary" routerLink = "editStock/{{item.id}}/{{isActive}}">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped" *ngIf="isActive === 'BOOK' ">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>level</th>
+                <th>designation</th>
+                <th>publisher</th>
+                <th>author</th>
+                <th>section</th>
+                <th>quantity</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of books|async">
+                <td> </td>
+                <td>{{item.level}}</td>
+                <td>{{item.designation}}</td>
+                <td>{{item.publisher}}</td>
+                <td>{{item.author}}</td>
+                <td>{{item.section}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <a class="btn btn-primary" routerLink = "editStock/{{item.id}}/{{isActive}}">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped" *ngIf="isActive === 'ACCESSORY'">
+        <thead>
+            <tr>
+                <th>N° </th>
+                <th>designation</th>
+                <th>mark</th>
+                <th>quantity</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of accessories|async">
+                <td> </td>
+                <td>{{item.designation}}</td>
+                <td>{{item.mark}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <a class="btn btn-primary" routerLink = "editStock/{{item.id}}/{{isActive}}">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

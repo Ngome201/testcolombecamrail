@@ -10,9 +10,7 @@ import { VariablesService } from './variables.service';
   providedIn: 'root'
 })
 export class UserService {
-  // userUrl ="https://colombe-api.onrender.com/colombe/api/v0/user"
   userUrl :any
-  // userUrl ="http://localhost:3000/colombe/api/v0/user"
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false)
   userId : any
   role : any
@@ -32,9 +30,6 @@ export class UserService {
                 .post<User>(`${this.userUrl}/saveUser`,user,this.httpOptions)
                 .pipe(
                   first(),
-                  tap(()=>{
-                    this.router.navigate(["adminHome"]) 
-                  }),
                   catchError(this.errorHandlerService.handleError<User>("signup"))
                 );
     }
@@ -61,10 +56,10 @@ export class UserService {
           this.isUserLoggedIn$.next(true);
           
           this.role = tokenObject.role;
-          if (this.role == "admin"){
+          if (this.role == "ADMIN"){
             this.router.navigate(["adminHome"])
           }
-          else if(this.role == "camrail"){
+          else if(this.role == "CAMRAIL"){
             this.router.navigate(["camrailHome"])
           }
           else {
@@ -84,6 +79,7 @@ export class UserService {
         catchError(this.errorHandlerService.handleError<User[]>('empty list'))
       )
   }
+  
   getCamrails (): Observable<any>{
     return this.http
       .get<User[]>(`${this.userUrl}/getCamrails`,{responseType:"json"})
@@ -91,6 +87,7 @@ export class UserService {
         catchError(this.errorHandlerService.handleError<User[]>('empty list'))
       )
   }
+
   deleteUser(id : Pick <User,'id'>) : Observable<{}>{
     let userid = String(id)
     return this.http
@@ -100,6 +97,7 @@ export class UserService {
       catchError(this.errorHandlerService.handleError<User>('user not found'))
     )
   }
+
   editUser(id : Pick<User,"id">) : Observable<User>{
     let userid = String(id)
     
@@ -110,6 +108,7 @@ export class UserService {
 
     )
   }
+
   updateUser(user : any):Observable<any>{
     return this.http
                .put<any>(`${this.userUrl}/updateUser`,user,this.httpOptions)
@@ -118,6 +117,7 @@ export class UserService {
                 catchError(this.errorHandlerService.handleError<User>('update'))
                )
   }
+
   logout(){
     localStorage.removeItem('token')
     this.isUserLoggedIn$.next(false);

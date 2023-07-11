@@ -7,4 +7,4 @@ table tbody tr {
 }
 table tbody tr td:first-child::before{
     content : counter(row-num)
-}
+} 

@@ -4,19 +4,19 @@
         <thead>
             <tr>
                 <th>N° </th>
-                <th>total Items</th>
-                <th>total Amount</th>
-                <th>date</th>
-                <th>status</th>
+                <th>Date</th>
+                <th>Total Items</th>
+                <th>Total Amount</th>
+                <th>Status</th>
                 <th></th>
             </tr>
         </thead>
         <tbody  id="myTable">
             <tr *ngFor="let command of commands">
                 <td> </td>
+                <td>{{command.createdAt}}</td>
                 <td>{{command.totalItems}}</td>
                 <td>{{command.totalAmount}}</td>
-                <td>{{command.createdAt}}</td>
                 <td>{{command.status}}</td>
                 <td>
                     <a class="btn btn-primary" (click)="commandDetails (command.id,command.totalItems,command.totalAmount,command.createdAt)">
@@ -34,18 +34,18 @@
     <div class="d-flex">
         <div>
             <b>
-                <h3 class="mx-3">client: {{user.username}}</h3>
-                <h3 class="mx-3">matricule:  {{user.matricule}}</h3>
-                <h3 class="mx-3">tel:  {{user.tel}}</h3>
-                <h3 class="mx-3">address : {{user.address}}</h3>
+                <h3 class="mx-3">Client: {{user.username}}</h3>
+                <h3 class="mx-3">Matricule: {{user.matricule}}</h3>
+                <h3 class="mx-3">Tel:  {{user.tel}}</h3>
+                <h3 class="mx-3">Shipping Address : {{user.shippingAddress}}</h3>
 
          </b> 
          </div>
         <div>
            <b>
-            <h3 class="mx-3">date : {{date}}</h3>
-            <h3 class="mx-3">total Items : {{totalItems}}</h3>
-            <h3 class="mx-3">total Amount : {{totalAmount}} fcfa</h3>
+            <h3 class="mx-3">Date : {{date}}</h3>
+            <h3 class="mx-3">Total Items : {{totalItems}}</h3>
+            <h3 class="mx-3">Total Amount : {{totalAmount}} XAF</h3>
         </b> 
         </div>
         
