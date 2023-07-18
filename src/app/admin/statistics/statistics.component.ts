@@ -13,6 +13,15 @@ export class StatisticsComponent {
   totalStaffs : any
   todayCommands : any 
   constructor(private commandService:CommandService){
-    // this.commandService.statistics
+    this.commandService.statistics().subscribe(
+      (data) =>{
+        this.amountEncountered = data.amountEncountered
+        this.totalAdmins = data.totalAdmins
+        this.totalCamrails = data.totalCamrails
+        this.totalStaffs = data.totalStaffs
+        this.todayCommands = data.todayCommands
+
+      }
+    )
   }
 }

@@ -119,9 +119,14 @@ export class UserService {
   }
 
   logout(){
-    localStorage.removeItem('token')
-    this.isUserLoggedIn$.next(false);
-    this.router.navigate(["signIn"])
+    let bool = window.confirm('are you sure that you wat to logout?')
+    if (bool) {
+      
+      localStorage.removeItem('token')
+      this.isUserLoggedIn$.next(false);
+      this.router.navigate(["signIn"])
+    } 
+
   }
 
 }

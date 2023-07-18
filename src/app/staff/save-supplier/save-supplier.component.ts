@@ -29,7 +29,6 @@ export class SaveSupplierComponent {
         .subscribe((msg)=>{
           alert(msg.msg)
         })
-    window.location.reload()
 
   }
 

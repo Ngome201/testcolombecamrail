@@ -11,22 +11,28 @@
             </div>
             <div class="card-body">
                 <form (ngSubmit)="saveStock(myForm.value)" #myForm ="ngForm">
-                    
-                    <div class="form-group mt-2">
-                        <input type="text" name="quantity" placeholder = "enter the quantity..." class ="form-control" required ngModel>
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Quantity</label>
+                        <div class="col-8">
+                            <input type="text" name="quantity" placeholder = "enter the quantity..." class ="form-control" required ngModel>
+                        </div>
                     </div>
      
                     <div>
-                        <span>supplier : </span>
-                        <select name="supplier" ngModel>
-                            <option  *ngFor="let supplier of suppliers" value="{{supplier.name}}">{{supplier.name}}</option>
-                        </select>
+                        <label class="col-form-label col-4">Supplier</label>
+                        <div class="col-8">
+                            <select  name="level" ngModel class="form-select">
+                                <option  *ngFor="let supplier of suppliers" value="{{supplier.name}}">{{supplier.name}}</option>
+                            </select>
+                        </div>
                     </div>
-                    
-                    <div class="form-group mt-2">
-                        <input type="text" name="description" placeholder = "enter the description" class ="form-control" required ngModel>
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Description</label>
+                        <div class="col-8">
+                            <input type="text" name="description" placeholder = "enter the description" class ="form-control" required ngModel>
+                        </div>
                     </div>
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between mt-2">
                         <button type="submit" class="btn btn-primary float-right"> Save </button>
                         <button type="reset" class="btn btn-success mx-3"> Reset </button>
                     </div>

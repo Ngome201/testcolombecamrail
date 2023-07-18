@@ -1,14 +1,14 @@
 <b class="my-3 text-center">You have to choose one mode of selection in order to 
     display the list of the given type of items
 </b>
-<nav class="row">
+<div class="row">
     <div class="col-auto btn btn-group">
         <button class="btn btn-secondary" (click)="setEB()">Exercise Book</button>
         <button class="btn btn-secondary" (click)="setB()">Text Book</button>
         <button class="btn btn-secondary" (click)="setA()">Accessory</button>       
     </div>
     
-</nav>
+</div>
 <div class="table-responsive mt-2" *ngIf="activeBlock==='table'">
     <table class="table table-striped" *ngIf="isActive === 'EXERCISE_BOOK'">
         <thead>

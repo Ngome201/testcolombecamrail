@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { StockService } from 'src/app/services/stock.service';
 import { SupplierService } from 'src/app/services/supplier.service';
 
@@ -16,6 +17,7 @@ export class EditStockComponent {
   itemId : any
 
   constructor(private router : ActivatedRoute,
+              private location : Location,
               private stockService : StockService,
               private supplierService : SupplierService){
 
@@ -57,7 +59,7 @@ export class EditStockComponent {
           })
           break;
         default :
-        this.setListOption()
+        this.previousUrl()
 
       }
       
@@ -71,14 +73,14 @@ export class EditStockComponent {
           this.stockService.saveStockExerciseBook(this.itemId,data)
           .subscribe((msg)=>{
             alert(msg.msg)
-            this.setListOption()
+            this.previousUrl()
           })
           break;
         case 'BOOK':
           this.stockService.saveStockBook(this.itemId,data)
           .subscribe((msg)=>{
             alert(msg.msg)
-            this.setListOption()
+            this.previousUrl()
 
           })
           break;
@@ -86,7 +88,7 @@ export class EditStockComponent {
           this.stockService.saveStockAccessory(this.itemId,data)
           .subscribe((msg)=>{
             alert(msg.msg)
-            this.setListOption()
+            this.previousUrl()
           })
           break;
 
@@ -96,5 +98,7 @@ export class EditStockComponent {
     
   }
 
-
+ previousUrl(){
+  this.location.back()
+ }
 }

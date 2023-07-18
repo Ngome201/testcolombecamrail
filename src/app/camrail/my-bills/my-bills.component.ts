@@ -44,4 +44,7 @@ export class MyBillsComponent {
   print(){
     this.commandService.print()
   }
+  back(){
+    this.isActive = 'commandList'
+  }
 }

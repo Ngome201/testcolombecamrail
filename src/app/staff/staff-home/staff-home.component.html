@@ -1,13 +1,44 @@
-<div class="text-center d-flex">
-    
-    <div class="form-group row mx-2">
-        <div class="col-8">
-            <input class="form-control" id="myInput" type="text" placeholder="Search an item ...">
-        </div>
-    </div>  
+<nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <ul>
+       
+        <li>
+            <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown">Item</a>
+            <ul class ="dropdown-menu">
+                <li class="dropdown-item" ><a routerLink = "/staffHome/saveItem"> save Item </a>  </li>
+                <li class="dropdown-item" ><a routerLink = "/staffHome/itemsList"> items List </a></li>
+            </ul>
+        </li>
+        
+        <li class="dropdown"> 
+            <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown"> Stock </a>
+            <ul class ="dropdown-menu">
+                <li class="dropdown-item" ><a routerLink = "/staffHome/stock"> action on Stock </a>  </li>
+                <li class="dropdown-item" ><a routerLink = "/staffHome/globalStock"> Global stock  </a></li>
+            </ul>
+        </li>
+        <li> <a routerLink = "/staffHome/saveSupplier"> Supplier </a> </li>
+        <li> <a routerLink = "/staffHome/camrailsList"> Camrails </a> </li>
+        <li> <a routerLink = "/staffHome/commandsList"> Commands </a> </li>
+        <li > <a (click)="logout()"> Logout</a> </li>
+    </ul>
+</nav>
+<div class="d-flex justify-content-between my-3">
+    <h4>{{username}} {{matricule}}</h4>
+    <input class="form-control" id="myInput" type="text" placeholder="Search an item ...">
 </div>
-<h1 class="text-center"> hello {{username}} {{matricule}}</h1>
 
+
+
+
+
+
+
+<!-- ********************************************** -->
+<!-- 
 <div class="d-flex flex-wrap btn btn-group" >
     <div>
         <a class = "btn btn-primary" routerLink = "/staffHome/camrailsList"> camrails List </a>
@@ -40,7 +71,7 @@
         <button class="btn btn-secondary" (click)="logout()"> logout </button>
     </div>
 
-</div>
+</div> -->
 
 
 <!-- 

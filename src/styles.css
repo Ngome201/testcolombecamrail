@@ -8,3 +8,57 @@ table tbody tr {
 table tbody tr td:first-child::before{
     content : counter(row-num)
 } 
+.headsection{
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+}
+#myInput{
+    width: 250px;
+}
+*{
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+nav{
+    background: #0082e6;
+    height: 50px;
+    width: 100%;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 50px;
+    /* margin: 0 px; */
+}
+nav ul li a {
+    color : black;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 3px 3px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-family: montserrat;
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: black;
+    float: right;
+    line-height: 50px;
+    margin-right: 10px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+footer{
+    display: inline-block;
+    background-color: cadetblue;
+    bottom: 0;
+    position: relative;
+    top : 50px;
+}

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class VariablesService {
-  // url = "http://localhost:3000/colombe/api/v0/"                   //to index the local server
-  url = "https://colombe-api.onrender.com/colombe/api/v0/"     //to index the web server
+  url = "http://localhost:3000/colombe/api/v0/"                   //to index the local server
+  // url = "https://colombe-api.onrender.com/colombe/api/v0/"     //to index the web server
   constructor() { }
 }

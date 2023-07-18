@@ -56,7 +56,7 @@ const routes: Routes = [
     {path :"camrailItemsList",component : CamrailItemsListComponent},
     {path :"camrailNewBill",component : CamrailNewBillComponent},
     {path :"camrailDetailsBill",component : CamrailDetailsBillComponent},
-    {path :"myBills", component : MyBillsComponent }
+    {path :"myBills", component : MyBillsComponent, canActivate : [AuthGuardService] }
 
   ]
 

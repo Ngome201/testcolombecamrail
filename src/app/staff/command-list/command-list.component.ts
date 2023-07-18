@@ -53,11 +53,12 @@ export class CommandListComponent {
     })
 
   }
-  sendCommand(commandId:String){
+  sendCommand(commandId:string){
 
     if(window.confirm('are you sure that you want to send this command?')){
 
       this.commandService.sendCommand(commandId).subscribe((data)=>{
+        console.log(data)
             if (data.msg =='unsufficient') {
               this.unsufficient = data.unsufficient
               this.isActive = 'unsufficient'

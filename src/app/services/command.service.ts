@@ -40,9 +40,9 @@ export class CommandService {
                 )
   }
 
-  sendCommand(commandId:String):Observable<any>{
+  sendCommand(commandId:string):Observable<any>{
     return this.http
-                .get<any>(`${this.commandUrl}/sendCommand/${commandId}`,this.httpOptions)
+                .put<any>(`${this.commandUrl}/sendCommand/${commandId}`,this.httpOptions)
                 .pipe(
                   catchError (this.errorHandlerService.handleError<any>('cannot create fetch command'))
                 )
@@ -70,7 +70,7 @@ export class CommandService {
     return this.http
                .get<any>(`${this.commandUrl}/statistics`,this.httpOptions)
                .pipe(
-                catchError (this.errorHandlerService.handleError<any>('cannot create fetch command'))
+                catchError (this.errorHandlerService.handleError<any>('cannot create fetch statistics'))
 
                )
   }

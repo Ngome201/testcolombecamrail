@@ -11,7 +11,6 @@ import { VariablesService } from './variables.service';
 })
 export class BillService {
   billUrl : any
-  // billUrl = 'http://localhost:3000/colombe/api/v0/bill'
   httpOptions : {headers :HttpHeaders} = {headers:new HttpHeaders({'content-Type':'application/json'})}
 
   constructor(
