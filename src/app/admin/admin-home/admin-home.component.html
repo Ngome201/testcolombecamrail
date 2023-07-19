@@ -14,70 +14,24 @@
         <li>
             <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown">Item</a>
             <ul class ="dropdown-menu">
-                <li class="dropdown-item" ><a routerLink = "/adminHome/saveItem"> save Item </a>  </li>
-                <li class="dropdown-item" ><a routerLink = "/adminHome/itemsList"> items List </a></li>
+                <li class="dropdown-item" ><a routerLink = "/adminHome/saveItem"> Save Item </a>  </li>
+                <li class="dropdown-item" ><a routerLink = "/adminHome/itemsList"> Items List </a></li>
             </ul>
         </li>
         
         <li class="dropdown"> 
             <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown"> Stock </a>
             <ul class ="dropdown-menu">
-                <li class="dropdown-item" ><a routerLink = "/adminHome/stock"> action on Stock </a>  </li>
-                <li class="dropdown-item" ><a routerLink = "/adminHome/globalStock"> Global stock  </a></li>
+                <li class="dropdown-item" ><a routerLink = "/adminHome/stock"> Action On Stock </a>  </li>
+                <li class="dropdown-item" ><a routerLink = "/adminHome/globalStock"> Global Stock  </a></li>
             </ul>
         </li>
         <li> <a routerLink = "/adminHome/saveSupplier"> Supplier </a> </li>
-        <li> <a routerLink = "/adminHome/commandsList"> command List </a> </li>
-        <li> <a routerLink = "/adminHome/statistics"> statistics </a> </li>
+        <li> <a routerLink = "/adminHome/commandsList"> Command List </a> </li>
+        <li> <a routerLink = "/adminHome/statistics"> Statistics </a> </li>
+        <li> <a routerLink = "/adminHome/profile"> Profile </a> </li>
         <li > <a (click)="logout()"> Logout</a> </li>
     </ul>
 </nav>
-<div class="d-flex justify-content-between my-3">
 
-    <h4>{{username}} {{matricule}}</h4>
-    
-    <input class="form-control" id="myInput" type="text" placeholder="Search an item ...">
-</div>
-<!--     
-    <div class="d-flex my-3 flex-wrap">
-        <div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                User
-            </button>
-            <ul class ="dropdown-menu">
-                <li class="dropdown-item" ><a class="btn btn-primary" routerLink="/adminHome/saveUser"> saveUser</a></li>
-                <li class="dropdown-item" ><a class="btn btn-primary" routerLink="/adminHome/usersList"> usersList</a></li>
-            </ul>
-        </div>
-        
-        <div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                Item
-            </button>
-            <ul class ="dropdown-menu">
-                <li class="dropdown-item" ><a routerLink = "/adminHome/saveItem"> save Item </a>  </li>
-                <li class="dropdown-item" ><a routerLink = "/adminHome/itemsList"> items List </a></li>
-            </ul>
-        </div>
-
-        <a class = "btn btn-primary" routerLink = "/adminHome/saveSupplier"> Supplier </a> 
-        
-        <div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                Stock
-            </button>
-            <ul class ="dropdown-menu">
-                <li class="dropdown-item" ><a routerLink = "/adminHome/stock"> action on Stock </a>  </li>
-                <li class="dropdown-item" ><a routerLink = "/adminHome/globalStock"> Global stock  </a></li>
-            </ul>
-        </div>
-        
-        <a class = "btn btn-primary" routerLink = "/adminHome/commandsList"> command List </a>
-        <a class = "btn btn-primary" routerLink = "/adminHome/statistics"> statistics </a>
-                
-        <button class="btn btn-secondary" (click)="logout()"> logout </button>
-        
-        
-    </div> -->
-
-    <router-outlet></router-outlet>
+<router-outlet></router-outlet>

@@ -21,6 +21,7 @@ export class StaffHomeComponent implements OnInit{
       this.userService.isUserLoggedIn$.subscribe((isLoggedIn)=>{
         this.isAuthenticated = isLoggedIn
       })
+      
   }
   logout(){
     this.userService.logout()

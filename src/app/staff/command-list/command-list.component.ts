@@ -61,6 +61,7 @@ export class CommandListComponent {
         console.log(data)
             if (data.msg =='unsufficient') {
               this.unsufficient = data.unsufficient
+              console.log(data)
               this.isActive = 'unsufficient'
             } else {
               window.alert(data.msg);

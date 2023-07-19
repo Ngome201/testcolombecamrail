@@ -48,7 +48,7 @@
                     <th>less quantity</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
                 <tr *ngFor="let item of unsufficient">
                     <td> </td>
                     <td>{{item.designation}}</td>
@@ -100,12 +100,12 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
                 <tr *ngFor="let item of billItems">
                     <td> </td>
-                    <td>{{item.designation}}</td>
+                    <td>{{item.name}}</td>
                     <td>{{item.unitPrice}}</td>
-                    <td>{{item.quantity}}</td>
+                    <td>{{item.qty}}</td>
                     <td>{{item.totalPrice}}</td>
                     
                 </tr>

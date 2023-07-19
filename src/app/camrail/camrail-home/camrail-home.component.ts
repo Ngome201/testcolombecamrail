@@ -15,6 +15,8 @@ export class CamrailHomeComponent {
   cni : any
   printTag : any
   billId : any
+  isAuthenticated = false
+  user : any
   constructor(
     private itemService : ItemService,
     private billService : BillService,
@@ -24,9 +26,13 @@ export class CamrailHomeComponent {
   ){
     this.username = localStorage.getItem('username')
     this.matricule = localStorage.getItem('matricule')
-    this.cni = localStorage.getItem('cni')
-
   }
+  ngOnInit(): void {
+    this.userService.isUserLoggedIn$.subscribe((isLoggedIn)=>{
+      this.isAuthenticated = isLoggedIn
+    })
+    
+}
   addBill(){
     this.billService.addBill()
                     .subscribe((bill)=>{
@@ -38,5 +44,6 @@ export class CamrailHomeComponent {
   logout(){
       this.userService.logout()
   }
+ 
 
 }

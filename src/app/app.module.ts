@@ -17,12 +17,14 @@ import { CommandService } from './services/command.service';
 
 import {AuthInterceptorService} from './services/auth-interceptor.service';
 import { PrintComponent } from './print/print.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     PrintComponent,
+    ProfileComponent,
 
   ],
   imports: [
@@ -43,6 +45,7 @@ import { PrintComponent } from './print/print.component';
       multi : true
     },UserService,ItemService,BillService,CommandService,DatePipe
   ],
+  exports : [ProfileComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

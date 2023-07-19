@@ -19,6 +19,7 @@ export class AdminHomeComponent {
     this.userService.isUserLoggedIn$.subscribe((isLoggedIn)=>{
       this.isAuthenticated = isLoggedIn
     })
+
 }
   logout(){
     this.userService.logout()

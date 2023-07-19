@@ -23,6 +23,7 @@ import { StockComponent } from './staff/stock/stock.component';
 import { EditStockComponent } from './staff/edit-stock/edit-stock.component';
 import { GlobalStockComponent } from './staff/global-stock/global-stock.component';
 import { StatisticsComponent } from './admin/statistics/statistics.component';
+import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   {path : "adminHome",component : AdminHomeComponent,children:[
     {path :"saveUser",component : SaveUserComponent},
@@ -36,6 +37,7 @@ const routes: Routes = [
     {path :"itemsList",component : ItemsListComponent},
     {path :"commandsList",component : CommandListComponent},
     {path :"commandDetails",component : CommandDetailComponent},
+    {path :"profile",component : ProfileComponent},
    ], canActivate : [AuthGuardService]
   },
   
@@ -49,6 +51,7 @@ const routes: Routes = [
     {path :"itemsList",component : ItemsListComponent},
     {path :"commandsList",component : CommandListComponent},
     {path :"commandDetails",component : CommandDetailComponent},
+    {path :"profile",component : ProfileComponent},
     ], canActivate : [AuthGuardService]
   },
 
@@ -56,9 +59,10 @@ const routes: Routes = [
     {path :"camrailItemsList",component : CamrailItemsListComponent},
     {path :"camrailNewBill",component : CamrailNewBillComponent},
     {path :"camrailDetailsBill",component : CamrailDetailsBillComponent},
-    {path :"myBills", component : MyBillsComponent, canActivate : [AuthGuardService] }
+    {path :"profile",component : ProfileComponent},
+    {path :"myBills", component : MyBillsComponent }
 
-  ]
+  ], canActivate : [AuthGuardService]
 
   },
 

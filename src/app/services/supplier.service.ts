@@ -22,6 +22,7 @@ export class SupplierService {
      }
 
   saveSupplier(data : any):Observable<any>{
+    console.log(data)
     return this.http
                 .post<any>(`${this.supplierUrl}/saveSupplier`,data,this.httpOptions)
                 .pipe(

@@ -11,8 +11,18 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/438ae108a0.js" crossorigin="anonymous"></script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-  
+  <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        console.log("je suis entrain de chercher dans input")
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          console.log("je suis entrain de chercher dans le tableau")
+        });
+      });
+    });
+    </script>
 </head> 
 <body>
   <div class="d-flex justify-content-between headsection">
@@ -24,17 +34,12 @@
     </div>
   </div>
   <hr>
-  <script>
-    $(document).ready(function(){
-      $("#myInput").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#myTable tr").filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-      });
-    });
-    </script>
+  <div class="text-left my-3" id="search">
+    <input class="form-control" id="myInput" type="text" placeholder="Search an item ...">
+  </div>
+
   <app-root></app-root>
+
   <footer class="d-flex justify-content-between">
     <div>
       <span class="far fa-address-card"></span>
@@ -45,4 +50,5 @@
     </div>
   </footer>
 </body>
+
 </html>

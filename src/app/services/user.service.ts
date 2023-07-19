@@ -41,16 +41,17 @@ export class UserService {
       .pipe(
         first(),
         tap((tokenObject : {token : string; 
-                            userId : Pick <User,"id">, 
+                            id : Pick <User,"id">, 
                             role : Pick <User,"role">,
                             matricule : Pick <User,"matricule">,
                             username : Pick <User,"username">
                             // cni : Pick<User,"cni">
                           })=>{ 
-          this.userId = tokenObject.userId;
+          this.userId = tokenObject.id;
           localStorage.setItem("token",tokenObject.token)
           localStorage.setItem("username",String(tokenObject.username))
           localStorage.setItem("matricule",String(tokenObject.matricule))
+          localStorage.setItem("id",String(tokenObject.id))
           // localStorage.setItem("cni",String(tokenObject.cni))
           
           this.isUserLoggedIn$.next(true);
@@ -98,11 +99,10 @@ export class UserService {
     )
   }
 
-  editUser(id : Pick<User,"id">) : Observable<User>{
-    let userid = String(id)
+  editUser(id : string) : Observable<User>{
     
     return this.http
-    .get<User>(`${this.userUrl}/editUser/${userid}`,this.httpOptions)
+    .get<User>(`${this.userUrl}/editUser/${id}`,this.httpOptions)
     .pipe(
       catchError(this.errorHandlerService.handleError<User>('user seems to be not found'))
 

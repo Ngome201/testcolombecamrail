@@ -23,7 +23,7 @@
                 <th>price</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
             <tr *ngFor="let item of exerciseBooks|async">
                 <td> </td>
                 <td>{{item.designation}}</td>
@@ -54,7 +54,7 @@
                 <th>price</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
             <tr *ngFor="let item of books|async">
                 <td> </td>
                 <td>{{item.level}}</td>
@@ -82,7 +82,7 @@
                 <th>price</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
             <tr *ngFor="let item of accessories|async">
                 <td> </td>
                 <td>{{item.designation}}</td>
