@@ -37,6 +37,5 @@ export class SaveUserComponent implements OnInit {
     this.userService.signup(this.signupform.value)
     .subscribe((msg)=>{console.log(msg)})
     window.alert('user registerd successfully')
-    window.location.reload()
   }
 }

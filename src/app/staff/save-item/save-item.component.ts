@@ -12,7 +12,7 @@ export class SaveItemComponent {
   shapes : string[] =['A6','A5','A4']
   types : string[] = ['HC(Hard Cover)','TP(Travaux Pratiques)','GC(Grands Carreaux)',
   'DL(Double Ligne)','SQ(Square)','PL(Plain)','Dessin']
-  pages : string[] = ['20L','32p','40L','50p','60L','80L','100p','120p','144p','200p','288p','300p','400p']
+  pages : string[] = ['20L','32p','40L','50p','60L','80L','100p','120p','144p','200p','288p','300p','400p','500p','600p','700p','800p','900p','1000p']
   quantity =0;
   section : string = ''
 
@@ -31,14 +31,14 @@ export class SaveItemComponent {
   }
 
   setAnglo(){
-    this.levels = ['PN','N1','N2','class1','class1','class2','class3','class4','class5','class6',
+    this.levels = ['PN','N1','N2','class1','class2','class3','class4','class5','class6',
                     'form1','form2','form3','form4','form5', 'lower sixt', 'upper sixth']
     this.section = 'ANGLOPHONE'
     }
 
   setFranco(){
     this.levels = ['PS','MS','GS','SIL','CP','CE1','CE2','CM1','CM2',
-                    '6ème','5ème','4ème','3ème','2nd','1ère','Tle']
+                    '6ème','5ème','4ème','3ème','2nd A','2nd C','1ère A','1ère D','1ère C','Tle A','Tle D','Tle C']
     this.section = 'FRANCOPHONE'
   }
 

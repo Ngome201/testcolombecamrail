@@ -18,10 +18,10 @@
                         </div>
                     </div>
      
-                    <div>
+                    <div class="form-group row mt-2">
                         <label class="col-form-label col-4">Supplier</label>
                         <div class="col-8">
-                            <select  name="level" ngModel class="form-select">
+                            <select  name="supplier" ngModel class="form-select">
                                 <option  *ngFor="let supplier of suppliers" value="{{supplier.name}}">{{supplier.name}}</option>
                             </select>
                         </div>

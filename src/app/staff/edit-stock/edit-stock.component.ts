@@ -85,6 +85,7 @@ export class EditStockComponent {
           })
           break;
         case 'ACCESSORY':
+          console.log(this.itemId,data)
           this.stockService.saveStockAccessory(this.itemId,data)
           .subscribe((msg)=>{
             alert(msg.msg)
