@@ -21,6 +21,7 @@
                 <th>quantity</th>
                 <th>mark</th>
                 <th>price</th>
+                <th>Created At</th>
             </tr>
         </thead>
         <tbody id="myTable">
@@ -33,6 +34,7 @@
                 <td>{{item.quantity}}</td>
                 <td>{{item.mark}}</td>
                 <td>{{item.price}}</td>
+                <td>{{item.createdAt}}</td>
                 <td>
                     <a class="btn btn-primary" (click)="editExerciseBook (item.id)">
                         Update
@@ -52,6 +54,8 @@
                 <th>section</th>
                 <th>quantity</th>
                 <th>price</th>
+                <th>Created At</th>
+
             </tr>
         </thead>
         <tbody id="myTable">
@@ -64,6 +68,7 @@
                 <td>{{item.section}}</td>
                 <td>{{item.quantity}}</td>
                 <td>{{item.price}}</td>
+                <td>{{item.createdAt}}</td>
                 <td>
                     <a class="btn btn-primary" (click)="editBook(item.id)">
                         Update
@@ -80,6 +85,7 @@
                 <th>mark</th>
                 <th>quantity</th>
                 <th>price</th>
+                <th>Created At</th>
             </tr>
         </thead>
         <tbody id="myTable">
@@ -89,6 +95,7 @@
                 <td>{{item.mark}}</td>
                 <td>{{item.quantity}}</td>
                 <td>{{item.price}}</td>
+                <td>{{item.createdAt}}</td>
                 <td>
                     <a class="btn btn-primary" (click)="editAccessory(item.id)">
                         Update

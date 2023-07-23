@@ -12,6 +12,8 @@
                 <th>role</th>
                 <th>N°CNI</th>
                 <th>Location Address</th>
+                <th>Created At</th>
+                
             </tr>
         </thead>
         <tbody id="myTable">
@@ -25,6 +27,8 @@
                 <td>{{user.role}}</td>
                 <td>{{user.cni}}</td>
                 <td>{{user.locationAddress}}</td>
+                <td>{{user.createdAt}}</td>
+
                 <td>
                     <a class="btn btn-danger" 
                             (click)="deleteUser(user.id, user.username)"

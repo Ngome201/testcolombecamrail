@@ -8,4 +8,5 @@ export interface User{
     tel : string,
     locationAddress : string,
     shippingAddress : string,
+    createdAt : any
   }
