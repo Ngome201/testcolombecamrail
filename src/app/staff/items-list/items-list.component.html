@@ -36,6 +36,11 @@
                 <td>{{item.price}}</td>
                 <td>{{item.createdAt}}</td>
                 <td>
+                    <a class="btn btn-primary" (click)="deleteExerciseBook(item.id)">
+                        Delete
+                    </a>
+                </td>
+                <td>
                     <a class="btn btn-primary" (click)="editExerciseBook (item.id)">
                         Update
                     </a>
@@ -70,6 +75,11 @@
                 <td>{{item.price}}</td>
                 <td>{{item.createdAt}}</td>
                 <td>
+                    <a class="btn btn-primary" (click)="deleteBook(item.id)">
+                        Delete
+                    </a>
+                </td>
+                <td>
                     <a class="btn btn-primary" (click)="editBook(item.id)">
                         Update
                     </a>
@@ -96,6 +106,11 @@
                 <td>{{item.quantity}}</td>
                 <td>{{item.price}}</td>
                 <td>{{item.createdAt}}</td>
+                <td>
+                    <a class="btn btn-primary" (click)="deleteAccessory(item.id)">
+                        Delete
+                    </a>
+                </td>
                 <td>
                     <a class="btn btn-primary" (click)="editAccessory(item.id)">
                         Update

@@ -109,8 +109,8 @@ export class ItemsListComponent {
     this.itemService.updateExerciseBook(data)
                     .subscribe((msg)=>{
                       console.log(msg)
-                    })
-    window.alert('item was successfully updated')
+                      window.alert(msg)
+                      })
     this.activeBlock = "exerciseBook"
   }
   updateBook(data: any){
@@ -119,16 +119,38 @@ export class ItemsListComponent {
     this.itemService.updateBook(data)
                     .subscribe((msg)=>{
                       console.log(msg)
-                    })
-    window.alert('item was successfully updated')
+                      window.alert(msg)
+                      })
     this.activeBlock = "book"
   }
   updateAccessory(data: any){
     this.itemService.updateAccessory(data)
                     .subscribe((msg)=>{
                       console.log(msg)
-                    })
-    window.alert('item was successfully updated')
+                      window.alert(msg)
+                      })
     this.activeBlock = "accessory"
+  }
+
+  deleteExerciseBook(id : any){
+    this.itemService.deleteExerciseBook(id)
+                    .subscribe((msg)=>{
+                      console.log(msg)
+                      window.alert(msg)
+                    })
+  }
+  deleteAccessory(id: any){
+    this.itemService.deleteExerciseBook(id)
+    .subscribe((msg)=>{
+      console.log(msg)
+      window.alert(msg)
+    })
+  }
+  deleteBook(id : any){
+    this.itemService.deleteExerciseBook(id)
+    .subscribe((msg)=>{
+      console.log(msg)
+      window.alert(msg)
+    })
   }
 }
