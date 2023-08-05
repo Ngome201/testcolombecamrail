@@ -133,24 +133,25 @@ export class ItemsListComponent {
   }
 
   deleteExerciseBook(id : any){
-    this.itemService.deleteExerciseBook(id)
+    if (confirm('are you sure you want to delete this item')) {
+      this.itemService.deleteExerciseBook(id)
                     .subscribe((msg)=>{
                       console.log(msg)
-                      window.alert(msg)
                     })
+                      window.alert("deleted successfully")    }
+    else return
+    
   }
   deleteAccessory(id: any){
     this.itemService.deleteExerciseBook(id)
     .subscribe((msg)=>{
       console.log(msg)
-      window.alert(msg)
     })
-  }
+      window.alert("deleted successfully")  }
   deleteBook(id : any){
     this.itemService.deleteExerciseBook(id)
     .subscribe((msg)=>{
       console.log(msg)
-      window.alert(msg)
     })
-  }
+      window.alert("deleted successfully")  }
 }
