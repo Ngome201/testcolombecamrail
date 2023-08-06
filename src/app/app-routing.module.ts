@@ -24,6 +24,7 @@ import { EditStockComponent } from './staff/edit-stock/edit-stock.component';
 import { GlobalStockComponent } from './staff/global-stock/global-stock.component';
 import { StatisticsComponent } from './admin/statistics/statistics.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HelpComponent } from './camrail/help/help.component';
 const routes: Routes = [
   {path : "adminHome",component : AdminHomeComponent,children:[
     {path :"saveUser",component : SaveUserComponent},
@@ -60,6 +61,7 @@ const routes: Routes = [
     {path :"camrailNewBill",component : CamrailNewBillComponent},
     {path :"camrailDetailsBill",component : CamrailDetailsBillComponent},
     {path :"profile",component : ProfileComponent},
+    {path :"help",component : HelpComponent},
     {path :"myBills", component : MyBillsComponent, canActivate : [AuthGuardService] }
 
   ]

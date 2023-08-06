@@ -107,7 +107,7 @@ export class ItemService {
   }
   deleteAccessory(id : any):Observable<any>{
     return this.http
-            .delete<any>(`${this.itemUrl}/deleteAccessory/${id}`,this.httpOptions)
+            .delete<any>(`${this.itemUrl}/deleteAccessory/${id}/${localStorage.getItem("id")}`,this.httpOptions)
             .pipe(
               first(),
               catchError(this.errorHandlerService.handleError<any>('error occured'))
@@ -115,7 +115,7 @@ export class ItemService {
   }
   deleteExerciseBook(id : any):Observable<any>{
     return this.http
-            .delete<any>(`${this.itemUrl}/deleteExerciseBook/${id}`,this.httpOptions)
+            .delete<any>(`${this.itemUrl}/deleteExerciseBook/${id}/${localStorage.getItem("id")}`,this.httpOptions)
             .pipe(
               first(),
               catchError(this.errorHandlerService.handleError<any>('error occured'))
@@ -123,7 +123,7 @@ export class ItemService {
   }
   deleteBook(id : any):Observable<any>{
     return this.http
-            .delete<any>(`${this.itemUrl}/deleteBook/${id}`,this.httpOptions)
+            .delete<any>(`${this.itemUrl}/deleteBook/${id}/${localStorage.getItem("id")}`,this.httpOptions)
             .pipe(
               first(),
               catchError(this.errorHandlerService.handleError<any>('error occured'))

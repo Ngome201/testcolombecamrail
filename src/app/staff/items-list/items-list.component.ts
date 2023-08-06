@@ -136,22 +136,32 @@ export class ItemsListComponent {
     if (confirm('are you sure you want to delete this item')) {
       this.itemService.deleteExerciseBook(id)
                     .subscribe((msg)=>{
-                      console.log(msg)
+                      window.alert(msg)
                     })
-                      window.alert("deleted successfully")    }
+                          }
     else return
     
   }
+
   deleteAccessory(id: any){
-    this.itemService.deleteExerciseBook(id)
+    if (confirm('are you sure you want to delete this item')) {
+    this.itemService.deleteAccessory(id)
     .subscribe((msg)=>{
-      console.log(msg)
+      window.alert(msg)
     })
-      window.alert("deleted successfully")  }
-  deleteBook(id : any){
-    this.itemService.deleteExerciseBook(id)
+        }
+      else return
+  }
+
+    deleteBook(id : any){
+    if (confirm('are you sure you want to delete this item')) {
+    this.itemService.deleteBook(id)
     .subscribe((msg)=>{
-      console.log(msg)
+      window.alert(msg)
     })
-      window.alert("deleted successfully")  }
+        } 
+      else return
+
+    }
+
 }
