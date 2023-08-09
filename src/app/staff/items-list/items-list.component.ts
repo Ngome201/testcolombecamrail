@@ -13,7 +13,7 @@ export class ItemsListComponent {
                       'DL(Double Ligne)','SQ(Square)','PL(Plain)','Dessin']
   pages : string[] = ['20L','32p','40L','50p','60L','80L','100p','120p','144p','200p','288p','300p','400p','500p','600p','700p','800p','900p','1000p']
   levels : string[]=[]
-  sections : string[] = ["Anglophone","Francophone"]
+  sections : string[] = ["ANGLOPHONE","FRANCOPHONE"]
   
   countClickedEB: boolean = true //indicates if the list of EB is already fetched
   countClickedB: boolean = true  //indicates if the list of B is already fetched
@@ -104,30 +104,30 @@ export class ItemsListComponent {
     this.activeBlock = 'editAccessory'
 
   }
-  updateExerciseBook(data: any){
-    console.log(data)
-    this.itemService.updateExerciseBook(data)
+  updateExerciseBook(data: any,id : any){
+    
+    this.itemService.updateExerciseBook(data,id)
                     .subscribe((msg)=>{
                       console.log(msg)
-                      window.alert(msg)
+                      window.alert(msg.msg)
                       })
     this.activeBlock = "exerciseBook"
   }
-  updateBook(data: any){
-    console.log(data)
+  updateBook(data: any,id : any){
+    
 
-    this.itemService.updateBook(data)
+    this.itemService.updateBook(data,id)
                     .subscribe((msg)=>{
                       console.log(msg)
-                      window.alert(msg)
+                      window.alert(msg.msg)
                       })
     this.activeBlock = "book"
   }
-  updateAccessory(data: any){
-    this.itemService.updateAccessory(data)
+  updateAccessory(data: any,id:any){
+    this.itemService.updateAccessory(data,id)
                     .subscribe((msg)=>{
                       console.log(msg)
-                      window.alert(msg)
+                      window.alert(msg.msg)
                       })
     this.activeBlock = "accessory"
   }
@@ -136,7 +136,7 @@ export class ItemsListComponent {
     if (confirm('are you sure you want to delete this item')) {
       this.itemService.deleteExerciseBook(id)
                     .subscribe((msg)=>{
-                      window.alert(msg)
+                      window.alert(msg.msg)
                     })
                           }
     else return
@@ -147,7 +147,7 @@ export class ItemsListComponent {
     if (confirm('are you sure you want to delete this item')) {
     this.itemService.deleteAccessory(id)
     .subscribe((msg)=>{
-      window.alert(msg)
+      window.alert(msg.msg)
     })
         }
       else return
@@ -157,7 +157,7 @@ export class ItemsListComponent {
     if (confirm('are you sure you want to delete this item')) {
     this.itemService.deleteBook(id)
     .subscribe((msg)=>{
-      window.alert(msg)
+      window.alert(msg.msg)
     })
         } 
       else return

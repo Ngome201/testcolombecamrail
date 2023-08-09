@@ -81,25 +81,25 @@ export class ItemService {
             catchError (this.errorHandlerService.handleError<Accessory>('item seems to be not found'))
           )
   }
-  updateExerciseBook(exerciseBook : any):Observable<any>{
+  updateExerciseBook(exerciseBook : any,id:any):Observable<any>{
     return this.http
-            .put<any>(`${this.itemUrl}/updateExerciseBook`,exerciseBook,this.httpOptions)
+            .put<any>(`${this.itemUrl}/updateExerciseBook/${id}`,exerciseBook,this.httpOptions)
             .pipe(
               first(),
               catchError(this.errorHandlerService.handleError<any>('error occured'))
             )
   }
-  updateBook(book : any):Observable<any>{
+  updateBook(book : any,id:any):Observable<any>{
     return this.http
-            .put<any>(`${this.itemUrl}/updateBook`,book,this.httpOptions)
+            .put<any>(`${this.itemUrl}/updateBook/${id}`,book,this.httpOptions)
             .pipe(
               first(),
               catchError(this.errorHandlerService.handleError<any>('error occured'))
             )
   }
-  updateAccessory(accessory : any):Observable<any>{
+  updateAccessory(accessory : any,id:any):Observable<any>{
     return this.http
-            .put<any>(`${this.itemUrl}/updateAccessory`,accessory,this.httpOptions)
+            .put<any>(`${this.itemUrl}/updateAccessory/${id}`,accessory,this.httpOptions)
             .pipe(
               first(),
               catchError(this.errorHandlerService.handleError<any>('error occured'))

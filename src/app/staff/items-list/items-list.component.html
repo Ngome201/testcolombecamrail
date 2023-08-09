@@ -130,42 +130,53 @@
                 <h3 class="mb-0">Update</h3>
             </div>
             <div class="card-body">
-                <form novalidate (ngSubmit)="updateExerciseBook(signupform.value)" #signupform = "ngForm" >
+                <form novalidate (ngSubmit)="updateExerciseBook(signupform.value,exerciseBook.id)" #signupform = "ngForm" >
                     
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="exerciseBook.id" class="form-control"  name ="id" >
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Designation</label>
+                        <div class="col-8">
+                            <input type="text" [(ngModel)]="exerciseBook.designation" class="form-control"  name ="designation">
+                        </div>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Price</label>
+                        <div class="col-8">
+                            <input type="text" [(ngModel)]="exerciseBook.price" class="form-control"  name ="designation">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Mark</label>
+                        <div class="col-8">
+                            <input type="text" [(ngModel)]="exerciseBook.mark" class="form-control" name="mark">
+                        </div>
                     </div>
 
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="exerciseBook.designation" class="form-control"  name ="designation">
-                    </div>
-                
-                   
-                    <div class="form-control mt-2">
-                        <span for="type">type</span>
-                        <select name="type" [(ngModel)]="exerciseBook.type">
-                            <option *ngFor="let t of types" value="{{t}}">{{t}}</option>
-                        </select>                    
-                    </div>
-                    <div class="form-control mt-2">
-                        <span for="level">shape</span>
-                        <select name="shape" [(ngModel)]="exerciseBook.shape">
-                            <option *ngFor="let s of shapes" value="{{s}}">{{s}}</option>
-                        </select>
-                    </div>
-                    <div class="form-control mt-2">
-                        <span for="level">pages : </span>
-                        <select name="pages" [(ngModel)]="exerciseBook.pages">
-                            <option *ngFor="let p of pages" value="{{p}}">{{p}}</option>
-                        </select>
-                    </div>
-                   
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="exerciseBook.price" class="form-control" name="price" disabled>
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Type</label>
+                        <div class="col-8">
+                            <select name="type" [(ngModel)]="exerciseBook.type" class="form-select">
+                                <option *ngFor="let t of types" value="{{t}}">{{t}}</option>
+                            </select>                    
+                        </div>
                     </div>
 
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="exerciseBook.mark" class="form-control" name="mark">
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Shape</label>
+                        <div class="col-8">
+                            <select name="shape" [(ngModel)]="exerciseBook.shape" class="form-select">
+                                <option *ngFor="let s of shapes" value="{{s}}">{{s}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Pages</label>
+                        <div class="col-8">
+                            <select name="pages" [(ngModel)]="exerciseBook.pages" class="form-select">
+                                <option *ngFor="let p of pages" value="{{p}}">{{p}}</option>
+                            </select>
+                        </div>
                     </div>
                     
                     <button type="submit" class="btn btn-primary float-center mt-2">Save</button>
@@ -185,37 +196,52 @@
                 <h3 class="mb-0">Update</h3>
             </div>
             <div class="card-body">
-                <form novalidate (ngSubmit)="updateBook(signupform.value)" #signupform = "ngForm" >
-                    
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="book.id" class="form-control"  name ="id" disabled>
+                <form novalidate (ngSubmit)="updateBook(signupform.value,book.id)" #signupform = "ngForm" >
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Designation</label>
+                        <div class="col-8">
+                            <input type="text" [(ngModel)]="book.designation" class="form-control"  name ="designation">
+                        </div>
                     </div>
 
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="book.designation" class="form-control" name="designation" >
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Price</label>
+                        <div class="col-8">
+                            <input type="text" [(ngModel)]="book.price" class="form-control"  name ="price">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Level</label>
+                        <div class="col-8">
+                            <select  name="level" [(ngModel)]="book.level" class="form-select">
+                                <option *ngFor="let l of levels" value="{{l}}">{{l}}</option>
+                            </select>                    
+                        </div>
                     </div>
                    
-                    <div class="form-control mt-2">
-                        <span for="level">level : </span>
-                        <select  name="level" [(ngModel)]="book.level">
-                            <option *ngFor="let l of levels" value="{{l}}">{{l}}</option>
-                        </select>                    
-                    </div>
-                   
-                    <div class="form-group mt-2">
-                        <span for="section">section : </span>
-                        <select name="section" [(ngModel)]="book.section">
-                            <option *ngFor="let s of sections" value="{{s}}">{{s}}</option>
-                        </select>
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Section</label>
+                        <div class="col-8">
+                            <select name="section" [(ngModel)]="book.section" class="form-select">
+                                <option *ngFor="let s of sections" value="{{s}}">{{s}}</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="book.publisher" class="form-control" name="publisher">
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Publisher</label>
+                        <div class="col-8">
+                            <input type="text" [(ngModel)]="book.publisher" class="form-control" name="publisher">
+                        </div>
                     </div>
-
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="book.author" class="form-control" name="author">
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Author</label>
+                        <div class="col-8">
+                            <input type="text" [(ngModel)]="book.author" class="form-control" name="author">
+                        </div>
                     </div>
+      
                     
                     <button type="submit" class="btn btn-primary float-center mt-2">Save</button>
 
@@ -234,22 +260,25 @@
                 <h3 class="mb-0">Update </h3>
             </div>
             <div class="card-body">
-                <form novalidate (ngSubmit)="updateAccessory(signupform.value)" #signupform = "ngForm" >
+                <form novalidate (ngSubmit)="updateAccessory(signupform.value,accessory.id)" #signupform = "ngForm" >
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Designation</label>
+                        <div class="col-8">
+                            <input type="text" [(ngModel)]="accessory.designation" class="form-control" name ="designation" >
+                        </div>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Price</label>
+                        <div class="col-8">
+                            <input type="text" [(ngModel)]="exerciseBook.price" class="form-control"  name ="designation">
+                        </div>
+                    </div>
                     
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="accessory.id" class="form-control"  name ="id" disabled>
-                    </div>
-
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="accessory.designation" class="form-control" name ="designation" >
-                    </div>
-                   
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="accessory.price" class="form-control" name="price">
-                    </div>
-
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="accessory.mark" class="form-control" name="mark">
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label col-4">Mark</label>
+                        <div class="col-8">
+                            <input type="text" [(ngModel)]="accessory.mark" class="form-control" name="mark">
+                        </div>
                     </div>
                     <button type="submit" [disabled]="!signupform.valid" class="btn btn-primary float-center mt-2">Save</button>
 
