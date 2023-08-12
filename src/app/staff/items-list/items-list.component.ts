@@ -10,7 +10,7 @@ export class ItemsListComponent {
 
   shapes : string[] =['A6','A5','A4']
   types : string[] = ['HC(Hard Cover)','TP(Travaux Pratiques)','GC(Grands Carreaux)',
-                      'DL(Double Ligne)','SQ(Square)','PL(Plain)','Dessin']
+                      'DL(Double Lignes)','SQ(Square)','PL(Plain)','Dessin']
   pages : string[] = ['20L','32p','40L','50p','60L','80L','100p','120p','144p','200p','288p','300p','400p','500p','600p','700p','800p','900p','1000p']
   levels : string[]=[]
   sections : string[] = ["ANGLOPHONE","FRANCOPHONE"]
@@ -86,7 +86,7 @@ export class ItemsListComponent {
                       }
                       else{
                         this.levels = ['PS','MS','GS','SIL','CP','CE1','CE2','CM1','CM2',
-                        '6ème','5ème','4ème','3ème','2nd A','2nd C','1ère A','1ère D','1ère C','Tle A','Tle D','Tle C']
+                        '6ème','5ème','4ème','3ème','2nd','1ère','Tle']
                       }
                       console.log(data)
 

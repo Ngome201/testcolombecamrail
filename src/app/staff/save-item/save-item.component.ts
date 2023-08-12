@@ -38,7 +38,7 @@ export class SaveItemComponent {
 
   setFranco(){
     this.levels = ['PS','MS','GS','SIL','CP','CE1','CE2','CM1','CM2',
-                    '6ème','5ème','4ème','3ème','2nd A','2nd C','1ère A','1ère D','1ère C','Tle A','Tle D','Tle C']
+    '6ème','5ème','4ème','3ème','2nd','1ère','Tle']
     this.section = 'FRANCOPHONE'
   }
 

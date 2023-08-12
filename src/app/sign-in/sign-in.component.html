@@ -10,12 +10,18 @@
                 <div class="card-body">
                     <form novalidate (ngSubmit)="signIn()" [formGroup] ="signinform" class="form">
                         
-                        <div class="form-group mt-2">
+                        <div class="form-group row mt-2">
+                            <label class="col-form-label col-4">Matricule</label>
+                            <div class="col-8">
                                 <input type="text" placeholder="matricule" name="matricule" class="form-control rounded-0" formControlName ="matricule">
+                            </div>
                         </div>
-                    
-                        <div class="form-group mt-2">
+
+                        <div class="form-group row mt-2">
+                            <label class="col-form-label col-4">CNI</label>
+                            <div class="col-8">
                                 <input type="password" placeholder="cni" name="cni" class="form-control rounded-0" formControlName="cni">
+                            </div>
                         </div>
                         <button type="submit" [disabled]="!signinform.valid" class="btn btn-primary float-center mt-2">Submit</button>
 
