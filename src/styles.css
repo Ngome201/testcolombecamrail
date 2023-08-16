@@ -3,8 +3,10 @@ table{
     counter-reset: row-num;
     margin-right : 20px;
     margin-left: 20px;
+    margin-bottom: 30px;
     text-align: center;
 }
+
 thead{
     background-color: gray;
 }
@@ -66,7 +68,7 @@ footer{
     bottom: 0;
     position: fixed;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 body{
     height: 100vh;
