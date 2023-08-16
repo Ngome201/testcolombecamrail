@@ -69,7 +69,7 @@ const routes: Routes = [
   },
 
   {path : "signIn", component : SignInComponent},
-  {path : "print", component : PrintComponent},
+  {path : "print/:commandId", component : PrintComponent},
 
   {path : "",redirectTo:"signIn",pathMatch : "full"},
 ];

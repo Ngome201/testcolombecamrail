@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommandService } from 'src/app/services/command.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class CommandListComponent {
   commandId : any
   constructor(
     private commandService : CommandService,
+    private router : Router
   ){ 
     this.isActive = 'commandList'
     this.commandService.unDeliveredCommandList().subscribe((commandList)=>{
@@ -71,7 +73,7 @@ export class CommandListComponent {
     }
   }
 
-  print(){
-    this.commandService.print()
+  print(commandId : any){
+    this.router.navigate([`print/${commandId}`])
     }
 }

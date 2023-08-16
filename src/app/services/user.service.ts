@@ -109,9 +109,9 @@ export class UserService {
     )
   }
 
-  updateUser(user : any):Observable<any>{
+  updateUser(user : any,id : any):Observable<any>{
     return this.http
-               .put<any>(`${this.userUrl}/updateUser`,user,this.httpOptions)
+               .put<any>(`${this.userUrl}/updateUser/${id}`,user,this.httpOptions)
                .pipe(
                 first(),
                 catchError(this.errorHandlerService.handleError<User>('update'))

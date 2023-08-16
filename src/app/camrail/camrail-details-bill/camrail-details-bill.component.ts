@@ -20,7 +20,8 @@ export class CamrailDetailsBillComponent {
   validateTag : any;
   backTag : any;
   searchTag : any;
-  billId = localStorage.getItem("billId")
+  billId = String(localStorage.getItem("billId"))
+  commandId : any
 
 
   constructor(
@@ -42,9 +43,8 @@ export class CamrailDetailsBillComponent {
     })
   }
   addBillItem(billItemId:number){
-    const billId = localStorage.getItem("billId");
     
-    this.billService.addBillItem(String(billId),String(billItemId))
+    this.billService.addBillItem(String(this.billId),String(billItemId))
                     .subscribe((data)=>{
                       console.log(data)
 
@@ -52,16 +52,14 @@ export class CamrailDetailsBillComponent {
     
   }
   decBillItem(billItemId:number){
-    const billId = localStorage.getItem("billId");
-    this.billService.decBillItem(String(billId),String(billItemId))
+    this.billService.decBillItem(String(this.billId),String(billItemId))
                     .subscribe((data)=>{
                       console.log(data)
 
                     })
   }
   deleteBillItem(billItemId:number){
-    const billId = localStorage.getItem("billId");
-    this.billService.deleteBillItem(String(billId),String(billItemId))
+    this.billService.deleteBillItem(String(this.billId),String(billItemId))
                     .subscribe((data)=>{
                       console.log(data)
 
@@ -69,10 +67,13 @@ export class CamrailDetailsBillComponent {
   }
   
   cancelBill(){
-    this.billService.cancelBill(String(localStorage.getItem("billId"))).subscribe((data)=>{
+    if(confirm("are you sure you want to cancel this bill?"))
+    {this.billService.cancelBill(this.billId).subscribe((data)=>{
       console.log(data);
       this.router.navigate(["camrailHome"])
-    })
+      localStorage.removeItem('billId')
+    })}
+    else return 
   }
   backToBill(){
     
@@ -91,31 +92,33 @@ export class CamrailDetailsBillComponent {
 
   }
   validateBill(){
-    this.billId = localStorage.getItem('billId')
     if (this.billId == null) {
       window.alert(" there's no current bill available ")
       
     } else {
       if(window.confirm("are you sure you want to validate your bill ?")){
         
-      this.billService.validateBill(String(localStorage.getItem("billId")),
+      this.billService.validateBill(this.billId,
                                     String(localStorage.getItem("matricule"))).subscribe((data)=>{
                                       console.log(data);
+                                      this.commandId = data.savedCommand.id
+                                      this.router.navigate([`print/${this.commandId}`])
                                     })
-      this.cancelTag = document.getElementById("cancelBill")
-      this.cancelTag.style.display = "none"
+      // this.cancelTag = document.getElementById("cancelBill")
+      // this.cancelTag.style.display = "none"
 
-      this.backTag = document.getElementById("backToBill")
-      this.backTag.style.display = "none"
+      // this.backTag = document.getElementById("backToBill")
+      // this.backTag.style.display = "none"
 
-      this.printTag = document.getElementById("printTag")
-      this.printTag.style.display = "block"
+      // this.printTag = document.getElementById("printTag")
+      // this.printTag.style.display = "block"
 
-      this.validateTag = document.getElementById("validateTag")
-      this.validateTag.style.display = "none"
+      // this.validateTag = document.getElementById("validateTag")
+      // this.validateTag.style.display = "none"
       
-      this.searchTag = document.getElementById("myInput")
-      this.searchTag.style.display = "none"
+      // this.searchTag = document.getElementById("myInput")
+      // this.searchTag.style.display = "none"
+
       }
     }
   }

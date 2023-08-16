@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { BillService } from '../services/bill.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CommandService } from '../services/command.service';
 
 @Component({
   selector: 'app-print',
@@ -15,32 +15,38 @@ export class PrintComponent {
   date : any;
   name : any;
   matricule : any;
-  printTag : any;
-  cancelTag : any;
-  validateTag : any;
-  backTag : any;
-  billId = localStorage.getItem("billId")
-  
+  commandId: any;
+  searchTag :any
+  tel : any
+  shippingAddress : any
   constructor(
-    private billService : BillService,
+    private commandService : CommandService,
     private router : Router,
+    private activatedRoute : ActivatedRoute,
     private datePipe : DatePipe
   ){
-    billService.detailsBill(String(localStorage.getItem("billId"))).subscribe((data)=>{
+      this.commandId =this.activatedRoute.snapshot.params['commandId'];
+
+      commandService.detailsCommand(this.commandId).subscribe((data)=>{
       this.billItems = data.billItems
       this.totalAmount = data.totalAmount
       this.totalItems = data.totalItems
-      this.date = this.datePipe.transform((new Date),'dd/MM/yyyy h:mm:ss')
-      this.matricule = localStorage.getItem('matricule')
-      this.name = localStorage.getItem('username')
-      localStorage.removeItem("billId")
+      this.date = data.command.createdAt
+      this.matricule = data.user.matricule
+      this.name = data.user.username + " " +data.user.lastname
+      this.shippingAddress = data.user.shippingAddress
+      this.tel = data.user.tel
 
+
+      localStorage.removeItem("billId")
+      this.searchTag = document.getElementById('myInput')
+      this.searchTag.style.display = "none"
     })
   }
 
   printBill(){
      window.print();
-     this.router.navigate(['camrailHome'])
+     window.history.back()
 
   }
 }

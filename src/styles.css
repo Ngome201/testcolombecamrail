@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 table{
-    counter-reset: row-num
+    counter-reset: row-num;
+    margin-right : 20px;
+    margin-left: 20px;
+    text-align: center;
+}
+thead{
+    background-color: gray;
 }
 table tbody tr {
     counter-increment : row-num

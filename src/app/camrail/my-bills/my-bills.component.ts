@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommandService } from 'src/app/services/command.service';
 import { CommandListComponent } from 'src/app/staff/command-list/command-list.component';
 
@@ -19,7 +20,8 @@ export class MyBillsComponent {
   matricule : any
 
   constructor(
-    private commandService : CommandService
+    private commandService : CommandService,
+    private router : Router
   ){
     this.matricule = localStorage.getItem('matricule')
     this.commandService.myCommandList(this.matricule).subscribe((commandList)=>{
@@ -42,7 +44,7 @@ export class MyBillsComponent {
 
   }
   print(){
-    this.commandService.print()
+    this.router.navigate([`print/${this.commandId}`])
   }
   back(){
     this.isActive = 'commandList'

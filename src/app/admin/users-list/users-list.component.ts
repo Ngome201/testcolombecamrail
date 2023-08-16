@@ -43,9 +43,9 @@ export class UsersListComponent {
     })
   }
 
-  updateUser(data : any){
+  updateUser(data : any,id : any){
     console.log(data)
-    this.userService.updateUser(data)
+    this.userService.updateUser(data,id)
     .subscribe((msg)=>{
       console.log(msg)
 

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="text-center mt-2">
     <div class="col-auto">
         <button class="btn btn-secondary" (click)="setUndelivered()">Undelivered</button>
         <button class="btn btn-secondary mx-2" (click)="setDelivered()">Delivered</button>
@@ -28,7 +28,7 @@
                 <td>{{command.status}}</td>
                 <td>
                     <a class="btn btn-primary" (click)="commandDetails (command.id,command.totalItems,command.totalAmount,command.createdAt)">
-                        view command
+                        view
                     </a>
                 </td>
             </tr>
@@ -80,7 +80,7 @@
                     <h3 class="mx-3">Total Amount : {{totalAmount}} fcfa</h3>
                 </b> 
 
-                <a class="text-center btn btn-secondary" (click)="print()">Print</a>
+                <a class="text-center btn btn-secondary" (click)="print(commandId)">Print</a>
                 <a class="text-center btn btn-success" (click)="sendCommand(commandId)">Send Command</a>
             </div>
         </div>

@@ -4,20 +4,19 @@
         <div class="d-flex ">
             <div>
                 <b>
-                    <h5 class="mx-3">date : {{date}}</h5>
-                    <h5 class="mx-3">client: {{name}} {{matricule}}</h5>
+                    <h5 class="mx-3">Date : {{date}}</h5>
+                    <h5 class="mx-3">Client: {{name}} {{matricule}}</h5>
                 </b> 
             </div>
             <div>
                 <b>
-                    <h5 class="mx-3">total Items : {{totalItems}}</h5>
-                    <h5 class="mx-3">total Amount : {{totalAmount}} XAF</h5>
+                    <h5 class="mx-3">Total Items : {{totalItems}}</h5>
+                    <h5 class="mx-3">Total Amount : {{totalAmount}} XAF</h5>
                 </b> 
             </div>
         </div>
         <div>
-            <a class="btn btn-primary" id="printTag" routerLink="/print">print Bill</a>
-            <!-- <a class="btn btn-primary" id="printTag" (click)="printBill()">print Bill</a> -->
+            <a class="btn btn-primary" id="printTag" routerLink="/print/{{commandId}}">print Bill</a>
             <button class="btn btn-success mx-2" (click)="validateBill()" id="validateTag"> Validate Invoice</button>
           </div>
     </div>
@@ -30,10 +29,10 @@
             <thead>
                 <tr>
                     <th>N° </th>
-                    <th>designation</th>
-                    <th>unit price</th>
-                    <th>quantity</th>
-                    <th>total price</th>
+                    <th>Designation</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
                     <th></th>
                     <th></th>
                     <th></th>

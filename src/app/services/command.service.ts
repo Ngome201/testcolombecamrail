@@ -48,7 +48,7 @@ export class CommandService {
                 )
   }
   
-  detailsCommand(commandId:String):Observable<any>{
+  detailsCommand(commandId:any):Observable<any>{
     return this.http
                 .get<any>(`${this.commandUrl}/detailsCommand/${commandId}`,this.httpOptions)
                 .pipe(

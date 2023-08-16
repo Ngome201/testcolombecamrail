@@ -31,14 +31,22 @@ export class CamrailHomeComponent {
     this.userService.isUserLoggedIn$.subscribe((isLoggedIn)=>{
       this.isAuthenticated = isLoggedIn
     })
+   
     
 }
   addBill(){
-    this.billService.addBill()
+    if (localStorage.getItem("billId")==null) {
+      this.billService.addBill()
                     .subscribe((bill)=>{
                       localStorage.setItem("billId",String(bill.id))
                       console.log(bill)
                     })
+    }
+    else{
+      alert("a current bill is running please complete it")
+      this.router.navigate(["camrailHome/camrailDetailsBill"])
+    }
+    
   }
  
   logout(){

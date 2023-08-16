@@ -1,5 +1,4 @@
-<div class = "table-responsive" *ngIf="!isActive">
-        
+<div class = "table-responsive mt-2" *ngIf="!isActive">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -13,6 +12,8 @@
                 <th>N°CNI</th>
                 <th>Location Address</th>
                 <th>Created At</th>
+                <th> </th>
+                <th> </th>
                 
             </tr>
         </thead>
@@ -55,12 +56,8 @@
                 <h3 class="mb-0">Update </h3>
             </div>
             <div class="card-body">
-                <form novalidate (ngSubmit)="updateUser(signupform.value)" #signupform = "ngForm" >
-                    
-                    <div class="form-group mt-2">
-                        <input type="text" [(ngModel)]="user.id" class="form-control"  name ="id" disabled>
-                    </div>
-
+                <form novalidate (ngSubmit)="updateUser(signupform.value,user.id)" #signupform = "ngForm" >
+         
                     <div class="form-group row mt-2">
                         <label class="col-form-label col-4">Username</label>
                         <div class="col-8">
