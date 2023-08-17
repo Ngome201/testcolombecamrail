@@ -11,7 +11,8 @@ thead{
     background-color: gray;
 }
 table tbody tr {
-    counter-increment : row-num
+    counter-increment : row-num;
+    width : fit-content
 }
 table tbody tr td:first-child::before{
     content : counter(row-num)

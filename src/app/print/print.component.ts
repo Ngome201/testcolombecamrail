@@ -46,7 +46,10 @@ export class PrintComponent {
 
   printBill(){
      window.print();
+     setTimeout(() => {
      window.history.back()
+      
+     },20000);
 
   }
 }
