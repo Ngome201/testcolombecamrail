@@ -1,6 +1,5 @@
-<h1> Invoice Summary </h1>
 <div class="d-flex justify-content-between ">
-    <div class="d-flex ">
+    <div class="d-flex">
         <div>
             <b>
                 <h6 class="mx-3">Client: {{name}}</h6>
@@ -18,16 +17,16 @@
         </div>
     </div>
     <div>
-        <span class="fas fa-print"></span>
-        <a class="btn btn-light" id="printTag" (click)="printBill()">print</a>
+        
+        <a class="btn btn-primary" id="printTag" (click)="printBill()"><span class="fas fa-print"></span> print</a>
 
     </div>
 </div>
 
 
 <hr>
-<div class="table-responsive mt-2" >
-    <table class="table table-striped" >
+<div class="table-responsive content" >
+    <table class="table table-striped table-content" >
         <thead>
             <tr>
                 <th>N° </th>

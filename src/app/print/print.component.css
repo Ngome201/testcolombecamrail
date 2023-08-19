@@ -1,3 +1,44 @@
-td{
-    font-size: 13px;
+
+
+@media print{
+    .image{
+        height: 50px;
+    }
+    tr:nth-child(odd){
+        background-color: gray;
+    }
+    td:nth-child(2){
+        text-align: left;
+    }
+    td{
+        font-size: 10px;
+    }
+    .content{
+        display: flex;
+        justify-content: center;
+        width : 100%
+    }
+    
+    .table-content{
+        width: 100%;
+    }
+    td,tbody>tr,table{
+        border-collapse: collapse;
+        border-top: 0.2px solid rgb(37, 35, 35);
+        max-height: 5px;
+        padding: 0;
+    }
+    #printTag{
+        display: none;
+    }
+    h6{
+        font-size: small;
+        padding: 0;
+    }
+    thead{
+        font-size: 10px;
+    }
+    hr,footer{
+        display: none;
+    }
 }
